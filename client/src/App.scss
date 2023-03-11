@@ -1,0 +1,140 @@
+//FONTS
+@import url("https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&family=Roboto:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap");
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  //box-sizing: content-box;
+}
+
+//HEADER
+
+.header {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  &__container {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+  }
+
+  &__categories {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &-logo {
+      height: 40px;
+      width: 40px;
+      cursor: pointer;
+    }
+
+    &-navbar {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-link {
+      font-family: "EB Garamond", serif;
+      font-weight: normal;
+      font-size: 25px;
+      color: #978661;
+      margin-left: 25px;
+      text-shadow: 5px 1px 100px black;
+      cursor: pointer;
+    }
+  }
+
+  &__personal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &-searcher {
+      border-radius: 8px;
+      padding: 4px 12px;
+      width: 200px;
+      background-color: #222222;
+      border: 1px solid #978661;
+      color: rgba(255, 255, 255, 0.671);
+      outline: none;
+      font-family: "Roboto", sans-serif;
+      font-weight: normal;
+      font-size: 15px;
+    }
+
+    &-points {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-left: 17px;
+    }
+
+    &-storage {
+      width: 23px;
+    }
+
+    &-value {
+      font-family: "Roboto", sans-serif;
+      font-weight: normal;
+      font-size: 16px;
+      color: rgb(0, 0, 0);
+      margin-left: 5px;
+      text-shadow: 5px 1px 100px black;
+    }
+
+    &-avatar {
+      border: 3px solid #978661;
+      border-radius: 50%;
+      height: 47px;
+      width: 47px;
+      margin-left: 17px;
+    }
+  }
+}
+
+//LANDING
+.landing {
+  &__main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url("./assets/images/landing/main.png");
+    background-size: 100% 100%;
+    height: 100vh;
+
+    &-title {
+      font-family: "Alex Brush", cursive;
+      font-size: 100px;
+      //color: #ccad6bda;
+      color: rgba(166, 141, 88, 0.86);
+      text-shadow: 5px 1px 100px black;
+    }
+
+    &-description {
+      font-family: "EB Garamond", serif;
+      font-weight: normal;
+      font-size: 23px;
+      color: #bfb6a4;
+      text-shadow: 5px 1px 50px black;
+    }
+  }
+}
