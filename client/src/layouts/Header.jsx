@@ -1,8 +1,10 @@
 import logo from "../assets/icons/history.svg";
 import avatar from "../assets/images/header/avatar.jpg";
 import coin from "../assets/icons/coin.png";
+import { useState } from "react";
 
 export const Header = () => {
+  const [isAuthorized, setAuthorized] = useState(false);
   const categories = [
     "Tarih",
     "Til",
@@ -34,13 +36,22 @@ export const Header = () => {
             type="text"
             placeholder="Taqyrypty izdeu"
           />
-          <div className="header__personal-points">
-            <img className="header__personal-storage" src={coin} alt="" />
-            <p className="header__personal-value">911</p>
-          </div>
-          <div className="header__personal-profile">
-            <img className="header__personal-avatar" src={avatar} />
-          </div>
+          {isAuthorized ? (
+            <>
+              <div className="header__personal-points">
+                <img className="header__personal-storage" src={coin} alt="" />
+                <p className="header__personal-value">911</p>
+              </div>
+              <div className="header__personal-profile">
+                <img className="header__personal-avatar" src={avatar} />
+              </div>
+            </>
+          ) : (
+				<div>
+					<div>Tirkelu</div>
+					<div>Kiru</div>
+				</div>
+          )}
         </div>
       </div>
     </header>
