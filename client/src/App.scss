@@ -107,6 +107,29 @@
       width: 47px;
       margin-left: 17px;
     }
+
+    &-authorization {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+		margin-left: 20px;
+    }
+
+    &-authorization-button {
+      //border: 1px solid #978661;
+      color: rgb(255, 255, 255, 0.75);
+      background: #978661;
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-family: "Roboto", sans-serif;
+      font-weight: normal;
+		margin-right: 10px;
+		cursor: pointer;
+    }
+
+    &-authorization-button:last-of-type {
+		margin-right: 0;
+	 }
   }
 }
 

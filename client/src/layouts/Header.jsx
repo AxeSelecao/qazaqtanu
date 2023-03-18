@@ -13,7 +13,6 @@ export const Header = () => {
     "Din",
     "Muzyka",
     "Öner",
-    "Kino",
   ];
   return (
     <header className="header">
@@ -47,10 +46,12 @@ export const Header = () => {
               </div>
             </>
           ) : (
-				<div>
-					<div>Tirkelu</div>
-					<div>Kiru</div>
-				</div>
+            <div className="header__personal-authorization">
+              <div className="header__personal-authorization-button">
+                Tirkelu
+              </div>
+              <div className="header__personal-authorization-button">Kiru</div>
+            </div>
           )}
         </div>
       </div>
