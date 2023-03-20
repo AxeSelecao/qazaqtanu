@@ -8,7 +8,15 @@
 *::after {
   padding: 0;
   margin: 0;
-  //box-sizing: content-box;
+  box-sizing: border-box;
+}
+
+.navlink {
+  text-decoration: none;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 //HEADER
@@ -95,7 +103,8 @@
       font-family: "Roboto", sans-serif;
       font-weight: normal;
       font-size: 16px;
-      color: rgba(166, 141, 88, 0.86);
+      //color: rgba(166, 141, 88, 0.86);
+      color: #393737;
       margin-left: 5px;
       text-shadow: 5px 1px 40px black;
     }
@@ -108,11 +117,35 @@
       margin-left: 17px;
     }
 
+    &-settings {
+      position: absolute;
+      background-color: #fee6e3;
+      border: 1px solid rgb(221, 221, 221);
+      border-radius: 8px;
+      padding: 5px;
+      text-align: center;
+      margin-left: -15px;
+
+      .navlink p {
+        font-family: sans-serif;
+        font-weight: normal;
+        color: #393737;
+        font-size: 17px;
+        margin-top: 5px;
+      }
+
+      .signout p {
+        border-top: 1px solid #393737;
+		  padding-top: 2px;
+		  margin-top: 2px;
+      }
+    }
+
     &-authorization {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-		margin-left: 20px;
+      margin-left: 20px;
     }
 
     &-authorization-button {
@@ -123,13 +156,13 @@
       padding: 5px 10px;
       font-family: "Roboto", sans-serif;
       font-weight: normal;
-		margin-right: 10px;
-		cursor: pointer;
+      margin-right: 10px;
+      cursor: pointer;
     }
 
     &-authorization-button:last-of-type {
-		margin-right: 0;
-	 }
+      margin-right: 0;
+    }
   }
 }
 
@@ -151,15 +184,35 @@
       font-size: 100px;
       //color: #ccad6bda;
       color: rgb(166, 141, 88);
-      text-shadow: 5px 1px 100px black;
+      text-shadow: 5px 1px 100px white;
     }
 
     &-description {
       font-family: "EB Garamond", serif;
       font-weight: normal;
       font-size: 23px;
-      color: rgba(0, 0, 0, 0.55);
+      //color: rgba(0, 0, 0, 0.55);
+      color: rgb(91, 69, 45);
       text-shadow: 5px 1px 50px black;
     }
+  }
+}
+
+//SIGN-UP
+.signup,
+.signin {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-image: url("./assets/images/landing/main.png");
+  background-size: 100% 100%;
+  height: 100vh;
+
+  &__form {
+    background-color: white;
+    padding: 15px;
+    border: 1px solid #978661;
+    border-radius: 15px;
   }
 }
