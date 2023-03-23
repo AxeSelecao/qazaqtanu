@@ -3,7 +3,7 @@ import avatar from "../assets/images/header/avatar.jpg";
 import coin from "../assets/icons/coin.png";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { logOut } from "../services/redux/slice";
+import { logOut, unsetAccount } from "../services/redux/slice";
 import { useState } from "react";
 
 export const Header = () => {
@@ -13,11 +13,11 @@ export const Header = () => {
   const categories = [
     "Tarih",
     "Til",
-    "Ädebiet",
-    "Dästürler",
+    "Ádebiet",
+    "Dástúrler",
     "Din",
     "Muzyka",
-    "Öner",
+    "Óner",
   ];
 
   return (
@@ -63,7 +63,7 @@ export const Header = () => {
                       : { display: "none" }
                   }
                 >
-                  <NavLink className="navlink">
+                  <NavLink className="navlink" to={"profile"}>
                     <p>Profil</p>
                   </NavLink>
                   <NavLink className="navlink">
@@ -76,7 +76,14 @@ export const Header = () => {
                     <p>Parametrler</p>
                   </NavLink>
                   <NavLink className="navlink signout">
-                    <p onClick={() => dispatch(logOut())}>Shygu</p>
+                    <p
+                      onClick={() => {
+                        dispatch(logOut());
+                        dispatch(unsetAccount({}));
+                      }}
+                    >
+                      Shyǵý
+                    </p>
                   </NavLink>
                 </div>
               </div>
