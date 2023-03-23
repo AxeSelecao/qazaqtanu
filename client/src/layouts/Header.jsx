@@ -19,20 +19,31 @@ export const Header = () => {
     "Muzyka",
     "Óner",
   ];
+  const links = [
+    "history",
+    "language",
+    "literature",
+    "traditions",
+    "religion",
+    "music",
+    "art",
+  ];
 
   return (
     <header className="header">
       <div className="header__container">
         <div className="header__categories">
-          <NavLink to={""}>
+          <NavLink className="navlink" to={""}>
             <img className="header__categories-logo" src={logo} />
           </NavLink>
           <div className="header__categories-navbar">
             {categories.map((category, index) => {
               return (
-                <p className="header__categories-link" key={index}>
-                  {category}
-                </p>
+                <NavLink className="navlink" to={`/${links[index]}`}>
+                  <p className="header__categories-link" key={index}>
+                    {category}
+                  </p>
+                </NavLink>
               );
             })}
           </div>
