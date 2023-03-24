@@ -1,32 +1,108 @@
+import alphabetIcon from "../../../assets/icons/alphabet.svg";
+import grammarIcon from "../../../assets/icons/grammar.svg";
+import studyIcon from "../../../assets/icons/study.svg";
+import videoChatIcon from "../../../assets/icons/video-chat.svg";
+import speakingClubsIcon from "../../../assets/icons/speaking-clubs.svg";
 import { NavLink } from "react-router-dom";
 
 export const Language = () => {
   return (
     <div className="section">
       <div className="section__container">
-        <h1>Til</h1>
+        <h1>Тіл</h1>
         <br />
         <div
           style={{
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-between",
+            alignItems: "end",
           }}
         >
-          <NavLink className="navlink" to={"/language/alphabet"}>
-            <h2>Álippe</h2>
+          <NavLink
+            className="navlink"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+            to={"/language/alphabet"}
+          >
+            <img
+              className="section__container-category"
+              src={alphabetIcon}
+              alt="alphabet icon"
+            />
+            <h2>Әліппе</h2>
           </NavLink>
-          <NavLink className="navlink" to={""}>
-            <h2>Grammatika</h2>
+          <NavLink
+            className="navlink"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+            to={""}
+          >
+            <img
+              className="section__container-category"
+              src={grammarIcon}
+              alt="grammar icon"
+            />
+            <h2>Грамматика</h2>
           </NavLink>
-          <NavLink className="navlink" to={""}>
-            <h2>Oqu</h2>
+          <NavLink
+            className="navlink"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+            to={"/language/study"}
+          >
+            <img
+              className="section__container-category"
+              src={studyIcon}
+              alt="study icon"
+            />
+            <h2>Оқу</h2>
           </NavLink>
-          <NavLink className="navlink" to={""}>
-            <h2>Video-chat</h2>
+          <NavLink
+            className="navlink"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+            to={""}
+          >
+            <img
+              className="section__container-category"
+              src={videoChatIcon}
+              alt="video chat icon"
+            />
+            <h2>Видео-чат</h2>
           </NavLink>
-          <NavLink className="navlink" to={""}>
-            <h2>Áńgimelesý klýbtary</h2>
+          <NavLink
+            className="navlink"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+            to={""}
+          >
+            <img
+              className="section__container-category"
+              src={speakingClubsIcon}
+              alt="speaking club icon"
+            />
+            <h2>Әңгімелесу клубтары</h2>
           </NavLink>
         </div>
       </div>

@@ -13,11 +13,11 @@ export const Profile = () => {
           <h1>{profileData.name}</h1>
         </div>
         <br />
-        <h3>Jasy: {profileData.age}</h3>
+        <h3>Жасы: {profileData.age}</h3>
         <br />
-        <h3>Telefon nomiri: {profileData.phone}</h3>
+        <h3>Телефон нөмірі: {profileData.phone}</h3>
         <br />
-        <h3>Qazaq tilinin dengeyi: </h3>
+        <h3>Тілдің деңгейі: </h3>
       </div>
     </div>
   );

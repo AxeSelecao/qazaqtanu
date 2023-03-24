@@ -11,13 +11,13 @@ export const Header = () => {
   const dispatch = useDispatch();
   const [displayProfileMenu, setDisplayProfileMenu] = useState(false);
   const categories = [
-    "Tarih",
-    "Til",
-    "Ádebiet",
-    "Dástúrler",
-    "Din",
-    "Muzyka",
-    "Óner",
+    "Тарих",
+    "Тіл",
+    "Әдебиет",
+    "Дәстүрлер",
+    "Дің",
+    "Музыка",
+    "Өнер",
   ];
   const links = [
     "history",
@@ -52,7 +52,7 @@ export const Header = () => {
           <input
             className="header__personal-searcher"
             type="text"
-            placeholder="Taqyrypty izdeu"
+            placeholder="Тақырыпту іздеу"
           />
           {isLogged ? (
             <>
@@ -75,16 +75,16 @@ export const Header = () => {
                   }
                 >
                   <NavLink className="navlink" to={"profile"}>
-                    <p>Profil</p>
+                    <p>Профиль</p>
                   </NavLink>
                   <NavLink className="navlink">
-                    <p>Tapsyrmalar</p>
+                    <p>Тапсырмалар</p>
                   </NavLink>
                   <NavLink className="navlink">
-                    <p>Market</p>
+                    <p>Маркет</p>
                   </NavLink>
                   <NavLink className="navlink">
-                    <p>Parametrler</p>
+                    <p>Параметрлер</p>
                   </NavLink>
                   <NavLink className="navlink signout">
                     <p
@@ -93,7 +93,7 @@ export const Header = () => {
                         dispatch(unsetAccount({}));
                       }}
                     >
-                      Shyǵý
+                      Шығу
                     </p>
                   </NavLink>
                 </div>
@@ -105,13 +105,13 @@ export const Header = () => {
                 to={"registration"}
                 className="header__personal-authorization-button navlink"
               >
-                Tirkelu
+                Тіркелу
               </NavLink>
               <NavLink
                 to={"authorization"}
                 className="header__personal-authorization-button navlink"
               >
-                Kiru
+                Кіру
               </NavLink>
             </div>
           )}

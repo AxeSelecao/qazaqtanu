@@ -1,15 +1,23 @@
 import { useState } from "react";
+import LetterModal from "../../../../components/language/LetterModal";
 
 function Alphabet() {
   const kyrillicAlphabet = "АӘБВГҒДЕЁЖЗИЙКҚЛМНҢОӨПРСТУҰҮФХҺЦЧШЩЪЫIЬЭЮЯ";
   const kyrillicAlphabetArr = kyrillicAlphabet.split("");
   const latinAlphabet = "AÄBDEFGĞHIİJKLMNÑOÖPQRSŞTUŪÜVYZ";
   const latinAlphabetArr = latinAlphabet.split("");
+  const [letterModalActive, setLetterBookModalActive] = useState(false);
+  const [symbol, setSymbol] = useState("A");
 
   const [alphabet, setAlphabet] = useState(kyrillicAlphabetArr);
   return (
     <div className="alphabet">
-      <h1>Alippe</h1>
+      <LetterModal
+        active={letterModalActive}
+        setActive={setLetterBookModalActive}
+        symbol={symbol}
+      />
+      <h1>Әліппе</h1>
       <div
         style={{
           display: "flex",
@@ -34,6 +42,10 @@ function Alphabet() {
             return (
               <div
                 className="alphabet__container-letter"
+                onClick={() => {
+                  setLetterBookModalActive(true);
+                  setSymbol(letter);
+                }}
                 style={{ marginBottom: 0 }}
               >
                 <p>{letter}</p>
@@ -42,7 +54,13 @@ function Alphabet() {
             );
           } else {
             return (
-              <div className="alphabet__container-letter pointer">
+              <div
+                className="alphabet__container-letter pointer"
+                onClick={() => {
+                  setLetterBookModalActive(true);
+                  setSymbol(letter);
+                }}
+              >
                 <p>{letter}</p>
                 <p>{letter.toLowerCase()}</p>
               </div>
