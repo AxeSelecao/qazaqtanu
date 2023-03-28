@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Әліппе",
+    "materials": [
+      {
+        "type": "topic",
+        "description": "lorem"
+      },
+      {
+        "type": "task",
+        "description": "Мына сөздің жазылуы:",
+        "answer_options": ["куй", "кюй", "күй", "кұй"]
+      }
+    ]
+  }
+]

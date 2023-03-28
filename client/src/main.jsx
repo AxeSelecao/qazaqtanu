@@ -1,17 +1,71 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import "./index.css";
-import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./services/redux/store";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./index.css";
+import { SignIn } from "./pages/authorization/SignIn";
+import { SignUp } from "./pages/authorization/SignUp";
+import { Profile } from "./pages/Profile";
+import { Language } from "./pages/categories/language/Language";
+import Alphabet from "./pages/categories/language/alphabet/Alphabet";
+import Study from "./pages/categories/language/study/Study";
+import Beginner from "./pages/categories/language/study/levels/beginner/Beginner";
+import { Landing } from "./pages/Landing";
+import { Topic1 } from "./pages/categories/language/study/levels/beginner/unit-1/Topic-1";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Landing />,
+      },
+      {
+        path: "/authorization",
+        element: <SignIn />,
+      },
+      {
+        path: "/registration",
+        element: <SignUp />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
+        path: "/language",
+        element: <Language />,
+      },
+      {
+        path: "/language/alphabet",
+        element: <Alphabet />,
+      },
+      {
+        path: "/language/study",
+        element: <Study />,
+      },
+      {
+        path: "/language/study/beginner",
+        element: <Beginner />,
+        children: [
+          {
+            path: "/language/study/beginner/:id",
+            element: <Topic1 />,
+          },
+        ],
+      },
+    ],
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>
 );

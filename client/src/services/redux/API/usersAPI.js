@@ -25,7 +25,17 @@ export const usersAPI = createApi({
       }),
       invalidatesTags: [{ type: "Users", id: "LIST" }],
     }),
+    getUnits: build.query({
+      query: () => `units`,
+      providesTags: (result) =>
+        result
+          ? [
+              ...result.map(({ id }) => ({ type: "Units", id })),
+              { type: "Units", id: "LIST" },
+            ]
+          : [{ type: "Units", id: "LIST" }],
+    }),
   }),
 });
 
-export const { useGetUsersQuery, useAddUserMutation } = usersAPI;
+export const { useGetUsersQuery, useAddUserMutation, useGetUnitsQuery } = usersAPI;

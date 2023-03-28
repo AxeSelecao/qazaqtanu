@@ -32,6 +32,9 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  background-color: #5f551a;
+  border-bottom: 1px solid black;
+  z-index: 100;
 
   &__container {
     width: 80%;
@@ -180,7 +183,6 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    // background-image: url("./assets/images/landing/main.png");
     background-image: url("./assets/images/landing/steppe.jpg");
     background-size: 100% 100%;
     height: 100vh;
@@ -250,25 +252,25 @@
 }
 
 .section {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
   //  background-image: url("./assets/images/landing/steppe.jpg");
   background-color: #c7c7c7;
 
   background-size: 100% 100%;
   height: 100vh;
+  padding-top: 250px;
 
   &__container {
-    background-color: rgba(255, 255, 255, 0.596);
+    // background-color: rgba(255, 255, 255, 0.596);
     width: 70%;
     border-radius: 15px;
     font-family: sans-serif;
     padding: 50px;
+    margin-left: auto;
+    margin-right: auto;
 
     h1 {
       text-align: center;
+      margin-bottom: 50px;
     }
 
     &-category {
@@ -287,6 +289,7 @@
   background-color: #c7c7c7;
   background-size: 100% 100%;
   height: 100vh;
+  font-family: sans-serif;
 
   h1 {
     margin-top: 30px;
@@ -347,4 +350,78 @@
 
 .modal.active {
   transform: scale(2);
+}
+
+.study {
+  background-color: #c7c7c7;
+  width: 100vw;
+  height: 100vh;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    padding-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: sans-serif;
+
+    &-header {
+      width: 100%;
+      display: grid;
+      //justify-content: ;
+      grid-template-rows: auto;
+
+      h1 {
+        display: grid;
+        justify-self: center;
+      }
+    }
+
+    &-levels {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 200px;
+      margin-top: 90px;
+
+      .navlink {
+        font-size: 20px;
+        color: white;
+        background-color: #978661;
+        border-radius: 5px;
+        padding: 5px 10px;
+        width: 130px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+//LEVEL
+.level {
+  width: 100vw;
+  height: 100vh;
+  background-color: #c7c7c7;
+
+  &__content {
+    width: 85%;
+    margin-left: auto;
+    padding-top: 100px;
+  }
+}
+
+.levelroadmap {
+  position: fixed;
+  height: 100vh;
+  width: 13%;
+  border-right: 1px solid black;
+  padding: 100px 10px 0;
+  background-color: #5f551a;
+  color: #978661;
+  font-family: "EB Garamond", serif;
+  font-weight: normal;
 }
