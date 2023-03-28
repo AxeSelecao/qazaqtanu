@@ -16,7 +16,7 @@ function Study() {
           <h1>Oқу</h1>
         </div>
         <div className="study__container-levels">
-          <NavLink className="navlink" to="/language/study/beginner/2">
+          <NavLink className="navlink" to="/language/study/beginner/unit-1">
             <p>Бастауыш</p>
           </NavLink>
           <NavLink className="navlink" to="/language/study/intermediate">

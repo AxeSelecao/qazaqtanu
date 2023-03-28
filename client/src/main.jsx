@@ -1,10 +1,10 @@
+import "./index.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { Provider } from "react-redux";
 import { store } from "./services/redux/store";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./index.css";
 import { SignIn } from "./pages/authorization/SignIn";
 import { SignUp } from "./pages/authorization/SignUp";
 import { Profile } from "./pages/Profile";
@@ -13,7 +13,8 @@ import Alphabet from "./pages/categories/language/alphabet/Alphabet";
 import Study from "./pages/categories/language/study/Study";
 import Beginner from "./pages/categories/language/study/levels/beginner/Beginner";
 import { Landing } from "./pages/Landing";
-import { Topic1 } from "./pages/categories/language/study/levels/beginner/unit-1/Topic-1";
+import Unit from "./pages/categories/language/study/levels/beginner/unit-1/Unit-1";
+import Tasks from "./pages/categories/language/study/levels/beginner/unit-1/Tasks";
 
 const router = createBrowserRouter([
   {
@@ -53,8 +54,12 @@ const router = createBrowserRouter([
         element: <Beginner />,
         children: [
           {
-            path: "/language/study/beginner/:id",
-            element: <Topic1 />,
+            path: "/language/study/beginner/unit-1",
+            element: <Unit />,
+          },
+          {
+            path: "/language/study/beginner/unit-1/tasks",
+            element: <Tasks />,
           },
         ],
       },

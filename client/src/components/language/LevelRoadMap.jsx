@@ -11,18 +11,24 @@ function LevelRoadMap() {
   return (
     <div className="levelroadmap">
       <div className="levelroadmap__sidebar">
-        <div className="levelroadmap__sidebar-header">
+        <div
+          className="levelroadmap__sidebar-header"
+          style={{ borderBottom: "1px solid black", paddingBottom: 10 }}
+        >
           <h2>Қазақ тілін үйрену</h2>
           <h3>Бастауыш деңгей</h3>
         </div>
-        <div className="levelroadmap__sidebar-units">
+        <div className="levelroadmap__sidebar-units" style={{ marginTop: 10 }}>
           {data.map((unit, index) => {
             return (
               <NavLink
                 className="navlink"
-                to={`/language/study/beginner/${index + 1}`}
+                style={{ color: "black", fontSize: 18 }}
+                to={`/language/study/beginner/unit-${index + 1}`}
               >
-                <p>{unit.title}</p>
+                <h4>
+                  {index + 1}. {unit.title}
+                </h4>
               </NavLink>
             );
           })}

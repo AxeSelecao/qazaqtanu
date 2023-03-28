@@ -5,7 +5,7 @@ function Beginner() {
   return (
     <div className="level">
       <LevelRoadMap />
-      <Outlet />
+      <Outlet className="level__content"/>
     </div>
   );
 }

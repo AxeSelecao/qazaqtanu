@@ -2,12 +2,15 @@ import styled from "./Header.module.scss";
 import logo from "../assets/icons/history.svg";
 import avatar from "../assets/images/header/avatar.jpg";
 import coin from "../assets/icons/coin.png";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logOut, unsetAccount } from "../services/redux/slice";
 import { useState } from "react";
 
 export const Header = () => {
+  let { id } = useParams();
+  id = +id;
+  console.log(typeof id);
   const isLogged = useSelector((state) => state.login.isLogged);
   const dispatch = useDispatch();
   const [displayProfileMenu, setDisplayProfileMenu] = useState(false);
@@ -32,8 +35,6 @@ export const Header = () => {
 
   let location = useLocation();
 
-  console.log(location);
-
   if (
     location.pathname == "/registration" ||
     location.pathname == "/authorization"
@@ -41,22 +42,18 @@ export const Header = () => {
     return;
   }
 
-  let backColor = "";
-  let borBottom = "";
-  if (location.pathname == "/") {
-    backColor = "transparent";
-    borBottom = "none";
+  let backColor = "transparent";
+  let borBottom = "none";
+  if (typeof id == "number" && location.pathname != "/") {
+    backColor = "#5f551a";
+    borBottom = "1px solid black";
   }
   return (
     <header
       className="header"
-      //className={styled.header}
       style={{ backgroundColor: backColor, borderBottom: borBottom }}
     >
-      <div
-        className="header__container"
-        //  className={styled.header__container}
-      >
+      <div className="header__container">
         <div className="header__categories">
           <NavLink className="navlink" to={""}>
             <img className="header__categories-logo" src={logo} />

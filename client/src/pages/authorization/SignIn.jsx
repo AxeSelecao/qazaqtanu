@@ -40,7 +40,7 @@ export const SignIn = () => {
           }
         })}
       >
-        <h1>Kiru</h1>
+        <h1 style={{ textAlign: "center" }}>Kiru</h1>
         <br />
         <h3>Telefon nömiri:</h3>
         <PhoneInput
@@ -48,11 +48,25 @@ export const SignIn = () => {
           {...register("phone", { required: true })}
           value={value}
           onChange={setValue}
+          style={{ width: 240 }}
         />
+        <br />
         <h3>Qūpia söz:</h3>
         <input {...register("password")} type="password" />
         <br />
-        <button type="submit">Kiru</button>
+        <br />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <button style={{ width: 80, fontSize: 16 }} type="submit">
+            Kiru
+          </button>
+        </div>
       </form>
     </div>
   );

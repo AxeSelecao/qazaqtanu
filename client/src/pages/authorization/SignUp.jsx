@@ -44,23 +44,42 @@ export const SignUp = () => {
           }
         })}
       >
-        <h1>Tirkelu</h1>
+        <h1 style={{ textAlign: "center" }}>Tirkelu</h1>
         <br />
         <h3>Esim:</h3>
         <input {...register("name", { required: true })} type="text" />
+        <br />
+        <br />
         <h3>Jasy:</h3>
         <input {...register("age", { required: true })} type="number" />
+        <br />
+        <br />
         <h3>Telefon nömiri:</h3>
         <PhoneInput
           placeholder="Enter phone number"
           {...register("phone", { required: true })}
           value={value}
           onChange={setValue}
+          style={{ width: 240 }}
         />
+        <br />
+        <br />
         <h3>Qūpia söz:</h3>
         <input {...register("password", { required: true })} type="text" />
         <br />
-        <button type="submit">Tirkelu</button>
+        <br />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <button style={{ width: 80, fontSize: 16 }} type="submit">
+            Tirkelu
+          </button>
+        </div>
       </form>
     </div>
   );
