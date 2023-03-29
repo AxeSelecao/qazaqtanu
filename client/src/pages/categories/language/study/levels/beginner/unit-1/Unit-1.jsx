@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import AlphabetComponent from "../../../../../../../components/AlphabetComponent";
 import { useGetUnitsQuery } from "../../../../../../../services/redux/API/usersAPI";
 
-function Unit() {
+function Unit1() {
   const { data = {}, isLoading } = useGetUnitsQuery();
   const navigate = useNavigate();
   return (
@@ -34,7 +34,7 @@ function Unit() {
             marginTop: 30,
           }}
         >
-          <button className="button-next" onClick={() => navigate("tasks")}>
+          <button className="button-next" onClick={() => navigate("task-1")}>
             Келесі қадам
           </button>
         </div>
@@ -43,4 +43,4 @@ function Unit() {
   );
 }
 
-export default Unit;
+export default Unit1;

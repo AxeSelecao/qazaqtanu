@@ -23,10 +23,10 @@ function LevelRoadMap() {
             return (
               <NavLink
                 className="navlink"
-                style={{ color: "black", fontSize: 18 }}
+                style={{ color: "#aaa", fontSize: 18 }}
                 to={`/language/study/beginner/unit-${index + 1}`}
               >
-                <h4>
+                <h4 style={{ padding: "5px 0" }}>
                   {index + 1}. {unit.title}
                 </h4>
               </NavLink>

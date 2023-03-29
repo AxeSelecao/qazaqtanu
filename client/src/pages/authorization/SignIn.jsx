@@ -40,9 +40,9 @@ export const SignIn = () => {
           }
         })}
       >
-        <h1 style={{ textAlign: "center" }}>Kiru</h1>
+        <h1 style={{ textAlign: "center" }}>Кіру</h1>
         <br />
-        <h3>Telefon nömiri:</h3>
+        <h3>Телефон нөмірі:</h3>
         <PhoneInput
           placeholder="Enter phone number"
           {...register("phone", { required: true })}
@@ -51,7 +51,7 @@ export const SignIn = () => {
           style={{ width: 240 }}
         />
         <br />
-        <h3>Qūpia söz:</h3>
+        <h3>Құпия сөз:</h3>
         <input {...register("password")} type="password" />
         <br />
         <br />

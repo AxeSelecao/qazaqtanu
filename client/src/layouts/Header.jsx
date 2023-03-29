@@ -9,8 +9,9 @@ import { useState } from "react";
 
 export const Header = () => {
   let { id } = useParams();
-  id = +id;
-  console.log(typeof id);
+  const profileData = useSelector((state) => state.login.account);
+  console.log(profileData.points);
+
   const isLogged = useSelector((state) => state.login.isLogged);
   const dispatch = useDispatch();
   const [displayProfileMenu, setDisplayProfileMenu] = useState(false);
@@ -44,8 +45,13 @@ export const Header = () => {
 
   let backColor = "transparent";
   let borBottom = "none";
-  if (typeof id == "number" && location.pathname != "/") {
-    backColor = "#5f551a";
+  console.log(location.pathname);
+  if (
+    location.pathname == "/language/study/beginner/unit-1" ||
+    location.pathname == "/language/study/beginner/unit-1/task-1" ||
+    location.pathname == "/language/study/beginner/unit-1/task-2" 
+  ) {
+    backColor = "#222222";
     borBottom = "1px solid black";
   }
   return (
@@ -80,7 +86,7 @@ export const Header = () => {
             <>
               <div className="header__personal-points">
                 <img className="header__personal-storage" src={coin} alt="" />
-                <p className="header__personal-value">911</p>
+                <p className="header__personal-value">{profileData.points}</p>
               </div>
               <div className="header__personal-profile">
                 <img

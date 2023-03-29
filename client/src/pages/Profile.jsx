@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 
 export const Profile = () => {
   const profileData = useSelector((state) => state.login.account);
-  console.log(profileData);
   return (
     <div className="profile">
       <div className="profile__container">

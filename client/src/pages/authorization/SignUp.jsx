@@ -44,17 +44,17 @@ export const SignUp = () => {
           }
         })}
       >
-        <h1 style={{ textAlign: "center" }}>Tirkelu</h1>
+        <h1 style={{ textAlign: "center" }}>Тіркелу</h1>
         <br />
-        <h3>Esim:</h3>
+        <h3>Есім:</h3>
         <input {...register("name", { required: true })} type="text" />
         <br />
         <br />
-        <h3>Jasy:</h3>
+        <h3>Жасы:</h3>
         <input {...register("age", { required: true })} type="number" />
         <br />
         <br />
-        <h3>Telefon nömiri:</h3>
+        <h3>Телефон нөмірі:</h3>
         <PhoneInput
           placeholder="Enter phone number"
           {...register("phone", { required: true })}
@@ -64,7 +64,7 @@ export const SignUp = () => {
         />
         <br />
         <br />
-        <h3>Qūpia söz:</h3>
+        <h3>Құпия сөз:</h3>
         <input {...register("password", { required: true })} type="text" />
         <br />
         <br />
@@ -77,7 +77,7 @@ export const SignUp = () => {
           }}
         >
           <button style={{ width: 80, fontSize: 16 }} type="submit">
-            Tirkelu
+            Тіркелу
           </button>
         </div>
       </form>

@@ -1,8 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  isLogged: false,
-  account: {},
+  isLogged: true,
+  account: {
+    _id: "64246584494198569ad776bd",
+    age: "22",
+    name: "Шалқар",
+    password: "QazaqtanuOwner",
+    phone: "+7 707 911 9971",
+    points: 0,
+  },
 };
 
 const loggedSlice = createSlice({
