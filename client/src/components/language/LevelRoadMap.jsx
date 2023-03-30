@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useGetUnitsQuery } from "../../services/redux/API/usersAPI";
 
 function LevelRoadMap() {
@@ -7,27 +7,28 @@ function LevelRoadMap() {
     return <h1>Loading...</h1>;
   }
 
-  console.log(data);
+  let location = useLocation();
+
+  const makeActive = (event) => {
+    event.currentTarger.style.borderBottom = "1px solid black";
+  };
+
   return (
     <div className="levelroadmap">
       <div className="levelroadmap__sidebar">
-        <div
-          className="levelroadmap__sidebar-header"
-          style={{ borderBottom: "1px solid black", paddingBottom: 10 }}
-        >
+        <div className="levelroadmap__sidebar-header">
           <h2>Қазақ тілін үйрену</h2>
           <h3>Бастауыш деңгей</h3>
         </div>
-        <div className="levelroadmap__sidebar-units" style={{ marginTop: 10 }}>
-          {data.map((unit, index) => {
+        <div className="levelroadmap__sidebar-units">
+          {data[0].units.map((unit, index) => {
             return (
               <NavLink
                 className="navlink"
-                style={{ color: "#aaa", fontSize: 18 }}
                 to={`/language/study/beginner/unit-${index + 1}`}
               >
-                <h4 style={{ padding: "5px 0" }}>
-                  {index + 1}. {unit.title}
+                <h4>
+                  {index + 1}. {unit.title[0]}
                 </h4>
               </NavLink>
             );

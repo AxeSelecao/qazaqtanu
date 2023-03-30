@@ -1,26 +1,25 @@
-import { useNavigate } from "react-router-dom";
-import AlphabetComponent from "../../../../../../../components/AlphabetComponent";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { useGetUnitsQuery } from "../../../../../../../services/redux/API/usersAPI";
 
-function Unit1() {
+function Unit2() {
   const { data = {}, isLoading } = useGetUnitsQuery();
   const navigate = useNavigate();
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
 
-//  console.log(data[0].units[0].materials);
+  console.log(data[0].units[0].materials);
 
   return (
     <div className="unit">
       <div className="unit__container">
         <h1 className="unit__container-title">
-          {data[0].units[0].materials[0].title[0]}
+          {data[0].units[1].materials[0].title[0]}
         </h1>
         <h2 className="unit__container-description">
-          {data[0].units[0].materials[0].description[0]}
+          {data[0].units[1].materials[0].description}
         </h2>
-        <AlphabetComponent />
         <div
           style={{
             display: "flex",
@@ -39,4 +38,4 @@ function Unit1() {
   );
 }
 
-export default Unit1;
+export default Unit2;

@@ -31,9 +31,13 @@ const loggedSlice = createSlice({
       console.log(action.payload);
       state.account = action.payload;
     },
+    addPoint(state, action) {
+      state.account.points += 1;
+    },
   },
 });
 
-export const { logIn, logOut, setAccount, unsetAccount } = loggedSlice.actions;
+export const { logIn, logOut, setAccount, unsetAccount, addPoint } =
+  loggedSlice.actions;
 
 export default loggedSlice.reducer;

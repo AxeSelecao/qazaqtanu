@@ -35,7 +35,23 @@ export const usersAPI = createApi({
             ]
           : [{ type: "Units", id: "LIST" }],
     }),
+    addPoints: build.mutation({
+      query: (body) => (
+        console.log(body),
+        {
+          url: `points/${body}`,
+          method: "PUT",
+          body,
+        }
+      ),
+      invalidatesTags: [{ type: "Users", id: "LIST" }],
+    }),
   }),
 });
 
-export const { useGetUsersQuery, useAddUserMutation, useGetUnitsQuery } = usersAPI;
+export const {
+  useGetUsersQuery,
+  useAddUserMutation,
+  useGetUnitsQuery,
+  useAddPointsMutation,
+} = usersAPI;

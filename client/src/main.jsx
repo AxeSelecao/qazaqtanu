@@ -14,8 +14,8 @@ import Study from "./pages/categories/language/study/Study";
 import Beginner from "./pages/categories/language/study/levels/beginner/Beginner";
 import { Landing } from "./pages/Landing";
 import Unit1 from "./pages/categories/language/study/levels/beginner/unit-1/Unit-1";
-import Task1 from "./pages/categories/language/study/levels/beginner/unit-1/Task-1";
-import Task2 from "./pages/categories/language/study/levels/beginner/unit-1/Task-2";
+import Tasks_unit1 from "./pages/categories/language/study/levels/beginner/unit-1/Tasks_unit-1";
+import Unit2 from "./pages/categories/language/study/levels/beginner/unit-2/Unit-2";
 
 const router = createBrowserRouter([
   {
@@ -59,12 +59,12 @@ const router = createBrowserRouter([
             element: <Unit1 />,
           },
           {
-            path: "/language/study/beginner/unit-1/task-1",
-            element: <Task1 />,
+            path: "/language/study/beginner/unit-1/tasks",
+            element: <Tasks_unit1 />,
           },
-          {
-            path: "/language/study/beginner/unit-1/task-2",
-            element: <Task2 />,
+			 {
+            path: "/language/study/beginner/unit-2",
+            element: <Unit2 />,
           },
         ],
       },

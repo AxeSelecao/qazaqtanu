@@ -17,9 +17,9 @@ function AlphabetComponent() {
         setActive={setLetterBookModalActive}
         symbol={symbol}
       />
-      <h1>Әліппе</h1>
+      {/*<h1>Әліппе</h1>*/}
       <div
-		className="wrapper"
+        className="wrapper"
         style={{
           display: "flex",
           flexDirection: "row",

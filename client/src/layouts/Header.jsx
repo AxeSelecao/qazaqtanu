@@ -10,8 +10,6 @@ import { useState } from "react";
 export const Header = () => {
   let { id } = useParams();
   const profileData = useSelector((state) => state.login.account);
-  console.log(profileData.points);
-
   const isLogged = useSelector((state) => state.login.isLogged);
   const dispatch = useDispatch();
   const [displayProfileMenu, setDisplayProfileMenu] = useState(false);
@@ -45,15 +43,11 @@ export const Header = () => {
 
   let backColor = "transparent";
   let borBottom = "none";
-  console.log(location.pathname);
-  if (
-    location.pathname == "/language/study/beginner/unit-1" ||
-    location.pathname == "/language/study/beginner/unit-1/task-1" ||
-    location.pathname == "/language/study/beginner/unit-1/task-2" 
-  ) {
+  if (location.pathname.includes("unit")) {
     backColor = "#222222";
     borBottom = "1px solid black";
   }
+
   return (
     <header
       className="header"
