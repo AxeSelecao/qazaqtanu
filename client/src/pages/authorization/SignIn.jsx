@@ -10,7 +10,6 @@ export const SignIn = () => {
   const {
     register,
     handleSubmit,
-    resetField,
     formState: { errors },
   } = useForm();
 

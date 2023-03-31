@@ -2,16 +2,14 @@ import { useState } from "react";
 import {
   useGetUnitsQuery,
   useAddPointsMutation,
+  useGetUsersQuery,
 } from "../../../../../../../services/redux/API/usersAPI";
-import task1Audio from "../../../../../../../assets/sounds/beginner/unit-1/tasks/task-1.mp3";
 import { addPoint } from "../../../../../../../services/redux/slice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 function Tasks_unit1() {
   const profileData = useSelector((state) => state.login.account);
-  //  console.log(profileData._id);
-
   const [count, setCount] = useState(1);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -71,7 +69,11 @@ function Tasks_unit1() {
           >
             {data[0].units[0].materials[1].title[0]}
           </h2>
-          <audio className="unit__container-audio" controls src={task1Audio} />
+          <audio
+            className="unit__container-audio"
+            controls
+            src={`/audio/language/study/levels/beginner/unit-1/task-${count}.ogg`}
+          />
         </div>
         <div className="unit__answers">
           {data[0].units[0].materials[count].answer_options.map((option) => {

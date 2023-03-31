@@ -2,22 +2,35 @@ import { useState } from "react";
 import LetterModal from "./language/LetterModal";
 
 function AlphabetComponent() {
-  const kyrillicAlphabet = "АӘБВГҒДЕЁЖЗИЙКҚЛМНҢОӨПРСТУҰҮФХҺЦЧШЩЪЫIЬЭЮЯ";
+  const kyrillicAlphabet = "АӘБВГҒДЕЁЖЗИЙКҚЛМНҢОӨПРСТУҰҮФХҺЦЧШЩЪЫІЬЭЮЯ";
   const kyrillicAlphabetArr = kyrillicAlphabet.split("");
   const latinAlphabet = "AÄBDEFGĞHIİJKLMNÑOÖPQRSŞTUŪÜVYZ";
   const latinAlphabetArr = latinAlphabet.split("");
   const [letterModalActive, setLetterBookModalActive] = useState(false);
   const [symbol, setSymbol] = useState("A");
-
+  const [letter, setLetter] = useState();
   const [alphabet, setAlphabet] = useState(kyrillicAlphabetArr);
+
+  const soundLetter = (letter) => {
+    let type;
+    if (kyrillicAlphabetArr.includes(letter)) {
+      type = "kyrillic";
+    } else if (latinAlphabetArr.includes(letter)) {
+      type = "latin";
+    }
+    let audio = new Audio(
+      `/audio/language/alphabet/${type}/letter-${letter}.ogg`
+    );
+    audio.play();
+  };
   return (
     <div>
       <LetterModal
         active={letterModalActive}
         setActive={setLetterBookModalActive}
         symbol={symbol}
+        letter={letter}
       />
-      {/*<h1>Әліппе</h1>*/}
       <div
         className="wrapper"
         style={{
@@ -29,11 +42,18 @@ function AlphabetComponent() {
       >
         <h2
           className="pointer"
-          onClick={() => setAlphabet(kyrillicAlphabetArr)}
+          onClick={() => {
+            setAlphabet(kyrillicAlphabetArr);
+          }}
         >
           Кириллица
         </h2>
-        <h2 className="pointer" onClick={() => setAlphabet(latinAlphabetArr)}>
+        <h2
+          className="pointer"
+          onClick={() => {
+            setAlphabet(latinAlphabetArr);
+          }}
+        >
           Латиница
         </h2>
       </div>
@@ -46,6 +66,8 @@ function AlphabetComponent() {
                 onClick={() => {
                   setLetterBookModalActive(true);
                   setSymbol(letter);
+                  soundLetter(letter);
+                  setLetter(letter);
                 }}
                 style={{ marginBottom: 0 }}
               >
@@ -60,6 +82,8 @@ function AlphabetComponent() {
                 onClick={() => {
                   setLetterBookModalActive(true);
                   setSymbol(letter);
+                  soundLetter(letter);
+                  setLetter(letter);
                 }}
               >
                 <p>{letter}</p>

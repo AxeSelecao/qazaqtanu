@@ -9,8 +9,6 @@ function Unit1() {
     return <h1>Loading...</h1>;
   }
 
-//  console.log(data[0].units[0].materials);
-
   return (
     <div className="unit">
       <div className="unit__container">

@@ -1,4 +1,3 @@
-import styled from "./Header.module.scss";
 import logo from "../assets/icons/history.svg";
 import avatar from "../assets/images/header/avatar.jpg";
 import coin from "../assets/icons/coin.png";
@@ -6,6 +5,7 @@ import { NavLink, useLocation, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logOut, unsetAccount } from "../services/redux/slice";
 import { useState } from "react";
+import { useGetUsersQuery } from "../services/redux/API/usersAPI";
 
 export const Header = () => {
   let { id } = useParams();
@@ -13,6 +13,7 @@ export const Header = () => {
   const isLogged = useSelector((state) => state.login.isLogged);
   const dispatch = useDispatch();
   const [displayProfileMenu, setDisplayProfileMenu] = useState(false);
+  const { data = {}, isLoading } = useGetUsersQuery();
   const categories = [
     "Тарих",
     "Тіл",
@@ -80,7 +81,15 @@ export const Header = () => {
             <>
               <div className="header__personal-points">
                 <img className="header__personal-storage" src={coin} alt="" />
-                <p className="header__personal-value">{profileData.points}</p>
+                <p className="header__personal-value">
+                  {!isLoading
+                    ? data.map((user) => {
+                        if (user._id == profileData._id) {
+                          return user.points;
+                        }
+                      })
+                    : ""}
+                </p>
               </div>
               <div className="header__personal-profile">
                 <img
