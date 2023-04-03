@@ -1,8 +1,9 @@
+import axios from "axios";
 import { useState } from "react";
 import {
   useGetUnitsQuery,
   useAddPointsMutation,
-  useGetUsersQuery,
+  useMakeCompleteMutation,
 } from "../../../../../../../services/redux/API/usersAPI";
 import { addPoint } from "../../../../../../../services/redux/slice";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 function Tasks_unit1() {
   const profileData = useSelector((state) => state.login.account);
+
   const [count, setCount] = useState(1);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -18,6 +20,12 @@ function Tasks_unit1() {
 
   const handleAddPoints = async (data) => {
     await addPoints(data).unwrap();
+  };
+
+  const [makeComplete] = useMakeCompleteMutation();
+
+  const handleMakeComplete = async (data) => {
+    await makeComplete(data).unwrap();
   };
 
   const { data = {}, isLoading } = useGetUnitsQuery();
@@ -31,8 +39,17 @@ function Tasks_unit1() {
     ) {
       console.log("Right!");
       event.currentTarget.style.backgroundColor = "#0bb90b";
-      handleAddPoints(profileData._id);
-      dispatch(addPoint());
+      axios.get(`http://localhost:8000/user/${profileData._id}`).then((res) => {
+        if (res.data.results[0].units[0].materials[count].completed == false) {
+          handleAddPoints(profileData._id);
+          dispatch(addPoint());
+          handleMakeComplete({
+            unit_name: "unit-1",
+            material_id: profileData.results[0].units[0].materials[count]._id,
+          });
+        }
+      });
+
       setTimeout(function () {
         const elems = document.querySelectorAll(".unit__answers-option");
         length = elems.length;

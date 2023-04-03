@@ -46,6 +46,17 @@ export const usersAPI = createApi({
       ),
       invalidatesTags: [{ type: "Users", id: "LIST" }],
     }),
+    makeComplete: build.mutation({
+      query: (body) => (
+      //  console.log(body),
+        {
+          url: `/${body.unit_name}/task/${body.material_id}`,
+          method: "PUT",
+          body,
+        }
+      ),
+      invalidatesTags: [{ type: "Users", id: "LIST" }],
+    }),
   }),
 });
 
@@ -54,4 +65,5 @@ export const {
   useAddUserMutation,
   useGetUnitsQuery,
   useAddPointsMutation,
+  useMakeCompleteMutation
 } = usersAPI;

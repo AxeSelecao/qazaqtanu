@@ -9,10 +9,6 @@ function LevelRoadMap() {
 
   let location = useLocation();
 
-  const makeActive = (event) => {
-    event.currentTarger.style.borderBottom = "1px solid black";
-  };
-
   return (
     <div className="levelroadmap">
       <div className="levelroadmap__sidebar">
@@ -27,7 +23,11 @@ function LevelRoadMap() {
                 className="navlink"
                 to={`/language/study/beginner/unit-${index + 1}`}
               >
-                <h4>
+                <h4
+                  className={`${
+                    location.pathname[30] == index + 1 ? "navlink-active" : ""
+                  }`}
+                >
                   {index + 1}. {unit.title[0]}
                 </h4>
               </NavLink>
