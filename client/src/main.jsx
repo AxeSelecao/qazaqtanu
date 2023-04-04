@@ -17,6 +17,8 @@ import Unit1 from "./pages/categories/language/study/levels/beginner/unit-1/Unit
 import Tasks_unit1 from "./pages/categories/language/study/levels/beginner/unit-1/Tasks_unit-1";
 import Unit2 from "./pages/categories/language/study/levels/beginner/unit-2/Unit-2";
 import Tasks_unit2 from "./pages/categories/language/study/levels/beginner/unit-2/Tasks_unit-2";
+import Unit3 from "./pages/categories/language/study/levels/beginner/unit-3/Unit-3";
+
 
 const router = createBrowserRouter([
   {
@@ -70,6 +72,10 @@ const router = createBrowserRouter([
 			 {
             path: "/language/study/beginner/unit-2/tasks",
             element: <Tasks_unit2 />,
+          },
+			 {
+            path: "/language/study/beginner/unit-3",
+            element: <Unit3 />,
           },
         ],
       },

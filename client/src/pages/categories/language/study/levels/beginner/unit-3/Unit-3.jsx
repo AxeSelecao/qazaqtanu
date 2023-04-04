@@ -8,7 +8,7 @@ import { addPoint } from "../../../../../../../services/redux/slice";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
-function Unit2() {
+function Unit3() {
   const profileData = useSelector((state) => state.login.account);
   const dispatch = useDispatch();
 
@@ -33,7 +33,8 @@ function Unit2() {
   return (
     <div className="unit">
       <div className="unit__container">
-        <h1 className="unit__container-title">
+        <h1>UNIT-3</h1>
+        {/*<h1 className="unit__container-title">
           {data[0].units[1].materials[0].title[1]}
         </h1>
         <p className="unit__container-description">
@@ -72,7 +73,7 @@ function Unit2() {
         </p>
         <p className="unit__container-description">
           {data[0].units[1].materials[0].description[11][0]}
-        </p>
+        </p>*/}
         <div
           style={{
             display: "flex",
@@ -108,4 +109,4 @@ function Unit2() {
   );
 }
 
-export default Unit2;
+export default Unit3;

@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 function Tasks_unit2() {
   const profileData = useSelector((state) => state.login.account);
 
-  const [count, setCount] = useState(10);
+  const [count, setCount] = useState(15);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -40,12 +40,12 @@ function Tasks_unit2() {
       console.log("Right!");
       event.currentTarget.style.backgroundColor = "#0bb90b";
       axios.get(`http://localhost:8000/user/${profileData._id}`).then((res) => {
-        if (res.data.results[0].units[0].materials[count].completed == false) {
+        if (res.data.results[0].units[1].materials[count].completed == false) {
           handleAddPoints(profileData._id);
           dispatch(addPoint());
           handleMakeComplete({
-            unit_name: "unit-1",
-            material_id: profileData.results[0].units[0].materials[count]._id,
+            unit_name: "unit-2",
+            material_id: profileData.results[0].units[1].materials[count]._id,
           });
         }
       });
@@ -56,9 +56,9 @@ function Tasks_unit2() {
         for (let i = 0; i < length; i++) {
           elems[i].style.backgroundColor = "#968560";
         }
-        if (count == 10) {
-          navigate("/language/study/beginner/unit-2");
-        } else if (count < 30) {
+        if (count == 15) {
+          navigate("/language/study/beginner/unit-3");
+        } else if (count < 15) {
           setCount(count + 1);
         }
       }, 2000);
