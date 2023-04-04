@@ -9,7 +9,7 @@ export const Language = () => {
   return (
     <div className="section">
       <div className="section__container">
-        <h1>Тіл</h1>
+        <h1>Язык</h1>
         <br />
         <div
           style={{
@@ -34,7 +34,7 @@ export const Language = () => {
               src={alphabetIcon}
               alt="alphabet icon"
             />
-            <h2>Әліппе</h2>
+            <h2>Алфавит</h2>
           </NavLink>
           <NavLink
             className="navlink"
@@ -68,7 +68,7 @@ export const Language = () => {
               src={studyIcon}
               alt="study icon"
             />
-            <h2>Оқу</h2>
+            <h2>Обучение</h2>
           </NavLink>
           <NavLink
             className="navlink"
@@ -102,7 +102,7 @@ export const Language = () => {
               src={speakingClubsIcon}
               alt="speaking club icon"
             />
-            <h2>Әңгімелесу клубтары</h2>
+            <h2>Разговорные клубы</h2>
           </NavLink>
         </div>
       </div>

@@ -9,10 +9,10 @@ import { addPoint } from "../../../../../../../services/redux/slice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-function Tasks_unit1() {
+function Tasks_unit2() {
   const profileData = useSelector((state) => state.login.account);
 
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(10);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -35,7 +35,7 @@ function Tasks_unit1() {
 
   const checkAnswer = (event) => {
     if (
-      data[0].units[0].materials[count].answer == event.currentTarget.innerText
+      data[0].units[1].materials[count].answer == event.currentTarget.innerText
     ) {
       console.log("Right!");
       event.currentTarget.style.backgroundColor = "#0bb90b";
@@ -56,7 +56,7 @@ function Tasks_unit1() {
         for (let i = 0; i < length; i++) {
           elems[i].style.backgroundColor = "#968560";
         }
-        if (count == 30) {
+        if (count == 10) {
           navigate("/language/study/beginner/unit-2");
         } else if (count < 30) {
           setCount(count + 1);
@@ -84,21 +84,14 @@ function Tasks_unit1() {
             className="unit__container-description inline"
             style={{ margin: "0 20px 0 0" }}
           >
-            {/*{data[0].units[0].materials[1].title[0]}
-             */}
-            Выберите правильное написание этого слова:
+            {data[0].units[1].materials[count].title[0]}
           </h2>
-          <audio
-            className="unit__container-audio"
-            controls
-            src={`/audio/language/study/levels/beginner/unit-1/task-${count}.ogg`}
-          />
         </div>
         <div className="unit__answers">
-          {data[0].units[0].materials[count].answer_options.map((option) => {
+          {data[0].units[1].materials[count].answer_options.map((option) => {
             return (
               <h4 className="unit__answers-option" onClick={checkAnswer}>
-                {option}
+                {option}!
               </h4>
             );
           })}
@@ -108,4 +101,4 @@ function Tasks_unit1() {
   );
 }
 
-export default Tasks_unit1;
+export default Tasks_unit2;

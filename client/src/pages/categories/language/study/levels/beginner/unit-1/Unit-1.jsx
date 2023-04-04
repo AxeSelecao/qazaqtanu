@@ -8,7 +8,6 @@ import {
 import { addPoint } from "../../../../../../../services/redux/slice";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { useEffect } from "react";
 
 function Unit1() {
   const profileData = useSelector((state) => state.login.account);
@@ -38,9 +37,9 @@ function Unit1() {
         <h1 className="unit__container-title">
           {data[0].units[0].materials[0].title[0]}
         </h1>
-        <h2 className="unit__container-description">
+        <p className="unit__container-description">
           {data[0].units[0].materials[0].description[0]}
-        </h2>
+        </p>
         <AlphabetComponent />
         <div
           style={{
@@ -57,9 +56,7 @@ function Unit1() {
               axios
                 .get(`http://localhost:8000/user/${profileData._id}`)
                 .then((res) => {
-                  if (
-                    res.data.results[0].units[0].materials[0].completed == false
-                  ) {
+                  if (!res.data.results[0].units[0].materials[0].completed) {
                     handleAddPoints(profileData._id);
                     dispatch(addPoint());
                     handleMakeComplete({
@@ -71,7 +68,7 @@ function Unit1() {
               navigate("tasks");
             }}
           >
-            Келесі қадам
+            Следующий шаг
           </button>
         </div>
       </div>

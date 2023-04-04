@@ -16,13 +16,13 @@ export const Header = () => {
   const { data = {}, isLoading } = useGetUsersQuery();
 
   const categories = [
-    "Тарих",
-    "Тіл",
-    "Әдебиет",
-    "Дәстүрлер",
-    "Дің",
+    "История",
+    "Язык",
+    "Литература",
+    "Традиции",
+    "Религия",
     "Музыка",
-    "Өнер",
+    "Искусство",
   ];
   const links = [
     "history",
@@ -79,19 +79,33 @@ export const Header = () => {
                 data[2].results[0].units[
                   Number(location.pathname[30]) - 1
                 ].materials.map((material, i) => {
-                  return (
-                    <div
-                      className="header__materials-material pointer"
-                      style={
-                        material.completed
-                          ? { backgroundColor: "#978660" }
-                          : { backgroundColor: "ccc" }
-                      }
-                    >
-                      {material.type == "topic" ? "" : ""}
-                      {material.type == "task" ? "?" : ""}
-                    </div>
-                  );
+                  if (material.completed) {
+                    return (
+                      <div
+                        className="header__materials-material pointer"
+                        style={{ backgroundColor: "#978660" }}
+                        onClick={() => {
+                          console.log(material);
+                        }}
+                      >
+                        {material.type == "topic" ? "" : ""}
+                        {material.type == "task" ? "?" : ""}
+                      </div>
+                    );
+                  } else if (!material.completed) {
+                    return (
+                      <div
+                        className="header__materials-material pointer"
+                        style={{ backgroundColor: "#ccc" }}
+                        onClick={() => {
+                          console.log(material);
+                        }}
+                      >
+                        {material.type == "topic" ? "" : ""}
+                        {material.type == "task" ? "?" : ""}
+                      </div>
+                    );
+                  }
                 })
               ) : (
                 <></>
@@ -102,7 +116,7 @@ export const Header = () => {
             <input
               className="header__personal-searcher"
               type="text"
-              placeholder="Тақырыпту іздеу"
+              placeholder="Поиск темы..."
             />
             {isLogged ? (
               <>
@@ -136,13 +150,13 @@ export const Header = () => {
                       <p>Профиль</p>
                     </NavLink>
                     <NavLink className="navlink">
-                      <p>Тапсырмалар</p>
+                      <p>Задания</p>
                     </NavLink>
                     <NavLink className="navlink">
                       <p>Маркет</p>
                     </NavLink>
                     <NavLink className="navlink">
-                      <p>Параметрлер</p>
+                      <p>Настройки</p>
                     </NavLink>
                     <NavLink className="navlink signout">
                       <p
@@ -151,7 +165,7 @@ export const Header = () => {
                           dispatch(unsetAccount({}));
                         }}
                       >
-                        Шығу
+                        Выйти
                       </p>
                     </NavLink>
                   </div>
@@ -163,13 +177,13 @@ export const Header = () => {
                   to={"registration"}
                   className="header__personal-authorization-button navlink"
                 >
-                  Тіркелу
+                  Зарегистрироваться
                 </NavLink>
                 <NavLink
                   to={"authorization"}
                   className="header__personal-authorization-button navlink"
                 >
-                  Кіру
+                  Войти
                 </NavLink>
               </div>
             )}
@@ -205,7 +219,7 @@ export const Header = () => {
           <input
             className="header__personal-searcher"
             type="text"
-            placeholder="Тақырыпту іздеу"
+            placeholder="Поиск темы..."
           />
           {isLogged ? (
             <>
@@ -239,13 +253,13 @@ export const Header = () => {
                     <p>Профиль</p>
                   </NavLink>
                   <NavLink className="navlink">
-                    <p>Тапсырмалар</p>
+                    <p>Задания</p>
                   </NavLink>
                   <NavLink className="navlink">
                     <p>Маркет</p>
                   </NavLink>
                   <NavLink className="navlink">
-                    <p>Параметрлер</p>
+                    <p>Настройки</p>
                   </NavLink>
                   <NavLink className="navlink signout">
                     <p
@@ -254,7 +268,7 @@ export const Header = () => {
                         dispatch(unsetAccount({}));
                       }}
                     >
-                      Шығу
+                      Выйти
                     </p>
                   </NavLink>
                 </div>
@@ -266,13 +280,13 @@ export const Header = () => {
                 to={"registration"}
                 className="header__personal-authorization-button navlink"
               >
-                Тіркелу
+                Зарегистрироваться
               </NavLink>
               <NavLink
                 to={"authorization"}
                 className="header__personal-authorization-button navlink"
               >
-                Кіру
+                Войти
               </NavLink>
             </div>
           )}

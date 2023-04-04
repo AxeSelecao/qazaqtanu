@@ -13,8 +13,8 @@ function LevelRoadMap() {
     <div className="levelroadmap">
       <div className="levelroadmap__sidebar">
         <div className="levelroadmap__sidebar-header">
-          <h2>Қазақ тілін үйрену</h2>
-          <h3>Бастауыш деңгей</h3>
+          <h2>Обучение казахскому языку</h2>
+          <h3>Начинающий уровень</h3>
         </div>
         <div className="levelroadmap__sidebar-units">
           {data[0].units.map((unit, index) => {
