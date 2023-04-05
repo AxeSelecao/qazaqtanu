@@ -1,7 +1,7 @@
 import logo from "../assets/icons/history.svg";
 import avatar from "../assets/images/header/avatar.jpg";
 import coin from "../assets/icons/coin.png";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logOut, unsetAccount } from "../services/redux/slice";
 import { useState } from "react";
@@ -11,8 +11,8 @@ export const Header = () => {
   const profileData = useSelector((state) => state.login.account);
   const isLogged = useSelector((state) => state.login.isLogged);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [displayProfileMenu, setDisplayProfileMenu] = useState(false);
-  let count = 0;
   const { data = {}, isLoading } = useGetUsersQuery();
 
   const categories = [
@@ -85,7 +85,19 @@ export const Header = () => {
                         className="header__materials-material pointer"
                         style={{ backgroundColor: "#978660" }}
                         onClick={() => {
-                          console.log(material);
+                          if (material.type == "task") {
+                            navigate(
+                              `/language/study/beginner/unit-${Number(
+                                location.pathname[30]
+                              )}/task/${i}`
+                            );
+                          } else if (material.type == "topic") {
+                            navigate(
+                              `/language/study/beginner/unit-${Number(
+                                location.pathname[30]
+                              )}/topic/${material.position}`
+                            );
+                          }
                         }}
                       >
                         {material.type == "topic" ? "" : ""}
@@ -98,7 +110,19 @@ export const Header = () => {
                         className="header__materials-material pointer"
                         style={{ backgroundColor: "#ccc" }}
                         onClick={() => {
-                          console.log(material);
+                          if (material.type == "task") {
+                            navigate(
+                              `/language/study/beginner/unit-${Number(
+                                location.pathname[30]
+                              )}/task/${i}`
+                            );
+                          } else if (material.type == "topic") {
+                            navigate(
+                              `/language/study/beginner/unit-${Number(
+                                location.pathname[30]
+                              )}/topic/${material.position}`
+                            );
+                          }
                         }}
                       >
                         {material.type == "topic" ? "" : ""}

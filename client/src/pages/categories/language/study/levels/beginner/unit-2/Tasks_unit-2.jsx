@@ -6,13 +6,14 @@ import {
   useMakeCompleteMutation,
 } from "../../../../../../../services/redux/API/usersAPI";
 import { addPoint } from "../../../../../../../services/redux/slice";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 function Tasks_unit2() {
+  let { num } = useParams();
   const profileData = useSelector((state) => state.login.account);
 
-  const [count, setCount] = useState(15);
+  const [count, setCount] = useState(1);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -35,17 +36,17 @@ function Tasks_unit2() {
 
   const checkAnswer = (event) => {
     if (
-      data[0].units[1].materials[count].answer == event.currentTarget.innerText
+      data[0].units[1].materials[num].answer == event.currentTarget.innerText
     ) {
       console.log("Right!");
       event.currentTarget.style.backgroundColor = "#0bb90b";
       axios.get(`http://localhost:8000/user/${profileData._id}`).then((res) => {
-        if (res.data.results[0].units[1].materials[count].completed == false) {
+        if (res.data.results[0].units[1].materials[num].completed == false) {
           handleAddPoints(profileData._id);
           dispatch(addPoint());
           handleMakeComplete({
             unit_name: "unit-2",
-            material_id: profileData.results[0].units[1].materials[count]._id,
+            material_id: profileData.results[0].units[1].materials[num]._id,
           });
         }
       });
@@ -56,10 +57,12 @@ function Tasks_unit2() {
         for (let i = 0; i < length; i++) {
           elems[i].style.backgroundColor = "#968560";
         }
-        if (count == 15) {
-          navigate("/language/study/beginner/unit-3");
-        } else if (count < 15) {
-          setCount(count + 1);
+        if (num == 16) {
+          navigate("/language/study/beginner/unit-3/topic/1");
+        } else if (num == 10) {
+          navigate("/language/study/beginner/unit-2/topic/2");
+        } else if (num < 16) {
+          navigate(`/language/study/beginner/unit-2/task/${Number(num) + 1}`);
         }
       }, 2000);
     } else {
@@ -71,7 +74,7 @@ function Tasks_unit2() {
   return (
     <div className="unit">
       <div className="unit__container">
-        <h1 className="unit__container-title">Задание-{count}</h1>
+        <h1 className="unit__container-title">Задание</h1>
         <div
           style={{
             display: "flex",
@@ -84,11 +87,11 @@ function Tasks_unit2() {
             className="unit__container-description inline"
             style={{ margin: "0 20px 0 0" }}
           >
-            {data[0].units[1].materials[count].title[0]}
+            {data[0].units[1].materials[num].title[0]}
           </h2>
         </div>
         <div className="unit__answers">
-          {data[0].units[1].materials[count].answer_options.map((option) => {
+          {data[0].units[1].materials[num].answer_options.map((option) => {
             return (
               <h4 className="unit__answers-option" onClick={checkAnswer}>
                 {option}!

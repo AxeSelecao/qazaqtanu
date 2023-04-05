@@ -9,7 +9,7 @@ import { addPoint } from "../../../../../../../services/redux/slice";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
-function Unit1() {
+function Unit1_Topic1() {
   const profileData = useSelector((state) => state.login.account);
   const dispatch = useDispatch();
 
@@ -65,7 +65,7 @@ function Unit1() {
                     });
                   }
                 });
-              navigate("tasks");
+              navigate("/language/study/beginner/unit-1/task/1");
             }}
           >
             Следующий шаг
@@ -76,4 +76,4 @@ function Unit1() {
   );
 }
 
-export default Unit1;
+export default Unit1_Topic1;

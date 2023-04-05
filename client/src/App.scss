@@ -61,7 +61,7 @@
   &__materials {
     display: flex;
     flex-direction: row;
-    margin-left: 100px;
+    margin-left: 150px;
 
     &-material {
       width: 26px;
@@ -467,6 +467,12 @@
         margin: 20px 0;
       }
 
+      &-image {
+        border-radius: 5px;
+        max-width: 800px;
+        max-height: 550px;
+      }
+
       &-description {
         margin-bottom: 20px;
         font-size: 20px;
@@ -477,6 +483,58 @@
         width: 48px;
         border-radius: 5px;
         height: 30px;
+      }
+    }
+
+    &__table {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid black;
+      border-radius: 5px;
+      width: 80%;
+      background-color: #fff;
+
+      &-header {
+        display: flex;
+
+        border-bottom: 1px solid black;
+
+        h2 {
+          width: 50%;
+          text-align: center;
+          border-right: 1px solid black;
+
+          &:last-of-type {
+            border-right: none;
+          }
+        }
+      }
+
+      &-left-side {
+        width: 50%;
+        border-right: 1px solid black;
+        padding-left: 160px;
+      }
+
+      &-right-side {
+        width: 50%;
+        padding-left: 160px;
+      }
+
+      &-top-side,
+      &-middle-side {
+        border-bottom: 1px solid black;
+      }
+
+      &-top-side,
+      &-middle-side,
+      &-bottom-side {
+        display: flex;
+      }
+
+      &-container {
+        display: flex;
+        flex-direction: row;
       }
     }
 
@@ -525,7 +583,7 @@
 .levelroadmap {
   position: fixed;
   height: 100vh;
-  width: 13%;
+  width: 15%;
   border-right: 1px solid black;
   padding: 100px 20px 0;
   background-color: #222222;
@@ -537,6 +595,7 @@
     &-header {
       border-bottom: 1px solid #968560;
       padding-bottom: 10px;
+      cursor: pointer;
     }
 
     &-units {
