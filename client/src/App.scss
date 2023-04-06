@@ -16,12 +16,14 @@
 
   h2 {
     color: black;
+    text-shadow: 5px 1px 100px white;
     margin-top: 10px;
   }
 }
 
 .navlink-active {
-  border-bottom: 1px solid #ccc;
+  //  border-bottom: 1px solid #ccc;
+  background-color: #423d33;
 }
 
 .pointer {
@@ -294,8 +296,8 @@
 }
 
 .section {
-  background-color: #c7c7c7;
-
+  background-image: url("./assets/images/landing/steppe.jpg");
+  //  background-color: #c7c7c7;
   background-size: 100% 100%;
   height: 100vh;
   padding-top: 250px;
@@ -494,9 +496,13 @@
       width: 80%;
       background-color: #fff;
 
+      h2 {
+        font-weight: normal;
+        padding: 7px 0;
+      }
+
       &-header {
         display: flex;
-
         border-bottom: 1px solid black;
 
         h2 {
@@ -583,9 +589,9 @@
 .levelroadmap {
   position: fixed;
   height: 100vh;
-  width: 15%;
+  width: 17%;
   border-right: 1px solid black;
-  padding: 100px 20px 0;
+  padding: 100px 0;
   background-color: #222222;
   color: #978661;
   font-family: "EB Garamond", serif;
@@ -606,7 +612,7 @@
         font-size: 18px;
 
         h4 {
-          padding: 5px 0;
+          padding: 5px 17px;
         }
       }
     }

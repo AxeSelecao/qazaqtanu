@@ -14,10 +14,13 @@ function LevelRoadMap() {
     <div className="levelroadmap">
       <div className="levelroadmap__sidebar">
         <div className="levelroadmap__sidebar-header">
-          <h2 onClick={() => navigate("/language")}>
+          <h2 onClick={() => navigate("/language")} style={{ paddingLeft: 17 }}>
             Обучение казахскому языку
           </h2>
-          <h3 onClick={() => navigate("/language/study")}>
+          <h3
+            onClick={() => navigate("/language/study")}
+            style={{ paddingLeft: 17 }}
+          >
             Начинающий уровень
           </h3>
         </div>
@@ -33,7 +36,7 @@ function LevelRoadMap() {
                     location.pathname[30] == index + 1 ? "navlink-active" : ""
                   }`}
                 >
-                  {index + 1}. {unit.title[0]}
+                  {index + 1}. {unit.title[1]} ({unit.title[0]})
                 </h4>
               </NavLink>
             );

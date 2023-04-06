@@ -57,7 +57,7 @@ function Tasks_unit3() {
           elems[i].style.backgroundColor = "#968560";
         }
         if (num == 16) {
-          navigate("/language/study/beginner/unit-3/topic/1");
+          navigate("/language/study/beginner/unit-4/topic/1");
         } else if (num < 16) {
           navigate(`/language/study/beginner/unit-3/task/${Number(num) + 1}`);
         }

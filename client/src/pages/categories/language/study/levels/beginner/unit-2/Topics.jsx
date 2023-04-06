@@ -37,7 +37,8 @@ function Unit2_Topics() {
       <div className="unit">
         <div className="unit__container">
           <h1 className="unit__container-title">
-            {data[0].units[1].materials[0].title[1]}
+            {data[0].units[1].materials[0].title[0]} (
+            {data[0].units[1].materials[0].title[1]})
           </h1>
           <p className="unit__container-description">
             {data[0].units[1].materials[0].description[0][0]}
@@ -99,7 +100,8 @@ function Unit2_Topics() {
       <div className="unit">
         <div className="unit__container">
           <h1 className="unit__container-title">
-            {data[0].units[1].materials[11].title[0]}
+            {data[0].units[1].materials[11].title[1]} (
+            {data[0].units[1].materials[11].title[0]})
           </h1>
           <p className="unit__container-description">
             {data[0].units[1].materials[0].description[0][0]}

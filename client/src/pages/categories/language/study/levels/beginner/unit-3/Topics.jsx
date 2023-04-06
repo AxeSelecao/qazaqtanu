@@ -41,9 +41,12 @@ function Unit3_Topics() {
           alignItems: "center",
         }}
       >
-        <h1 className="unit__container-title">
-          {data[0].units[2].materials[0].title[0]}
+        <h1 className="unit__container-title" style={{ marginBottom: 0 }}>
+          {data[0].units[2].materials[0].title[1]}
         </h1>
+        <h2 style={{ marginBottom: 20 }}>
+          ({data[0].units[2].materials[0].title[0]})
+        </h2>
         <p className="unit__container-description">
           {data[0].units[2].materials[0].description[0][0]}
         </p>
@@ -122,7 +125,7 @@ function Unit3_Topics() {
           </div>
         </div>
         <p className="unit__container-description" style={{ marginTop: 20 }}>
-          Примеры:
+          Пример:
         </p>
         <div className="unit__table">
           <div className="unit__table-header">
