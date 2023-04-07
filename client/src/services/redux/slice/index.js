@@ -10,6 +10,7 @@ const initialState = {
     phone: "+7 707 911 9971",
     points: 0,
   },
+  unitNum: null,
 };
 
 const loggedSlice = createSlice({
@@ -34,10 +35,14 @@ const loggedSlice = createSlice({
     addPoint(state, action) {
       state.account.points += 1;
     },
+    setUnitNum(state, action) {
+      console.log("unit-num", action.payload);
+      state.unitNum = action.payload;
+    },
   },
 });
 
-export const { logIn, logOut, setAccount, unsetAccount, addPoint } =
+export const { logIn, logOut, setAccount, unsetAccount, addPoint, setUnitNum } =
   loggedSlice.actions;
 
 export default loggedSlice.reducer;

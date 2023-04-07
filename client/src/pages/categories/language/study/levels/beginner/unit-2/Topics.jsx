@@ -10,7 +10,6 @@ import axios from "axios";
 
 function Unit2_Topics() {
   const { num } = useParams();
-  console.log(num);
   const profileData = useSelector((state) => state.login.account);
   const dispatch = useDispatch();
 

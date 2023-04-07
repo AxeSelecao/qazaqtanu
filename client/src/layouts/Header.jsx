@@ -4,12 +4,14 @@ import coin from "../assets/icons/coin.png";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logOut, unsetAccount } from "../services/redux/slice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useGetUsersQuery } from "../services/redux/API/usersAPI";
 
 export const Header = () => {
   const profileData = useSelector((state) => state.login.account);
   const isLogged = useSelector((state) => state.login.isLogged);
+  const unitNum = useSelector((state) => state.login.unitNum);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [displayProfileMenu, setDisplayProfileMenu] = useState(false);
@@ -43,12 +45,56 @@ export const Header = () => {
     return;
   }
 
+  const clickMaterial = (material) => (event) => {
+    const materialsElems = document.querySelectorAll(
+      ".header__materials-material"
+    );
+    for (let i = 0; i < materialsElems.length; i++) {
+      materialsElems[i].style.border = "none";
+    }
+    event.currentTarget.style.border = "2px solid white";
+    if (material.type == "task") {
+      navigate(
+        `/language/study/beginner/unit-${Number(
+          location.pathname[30]
+        )}/task/${i}`
+      );
+    } else if (material.type == "topic") {
+      navigate(
+        `/language/study/beginner/unit-${Number(location.pathname[30])}/topic/${
+          material.position
+        }`
+      );
+    } else if (material.type == "test") {
+      navigate(
+        `/language/study/beginner/unit-${Number(location.pathname[30])}/test`
+      );
+    }
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (
+        location.pathname.includes("topic") &&
+        location.pathname[38] != undefined &&
+        location.pathname[38] == 1
+      ) {
+        const materialsElems = document.querySelectorAll(
+          ".header__materials-material"
+        );
+        materialsElems[0].style.border = "2px solid white";
+        for (let i = 1; i < materialsElems.length; i++) {
+          materialsElems[i].style.border = "none";
+        }
+      }
+    }, 10);
+  });
+
   let backColor = "transparent";
   let borBottom = "none";
   if (location.pathname.includes("unit")) {
     backColor = "#222222";
     borBottom = "1px solid black";
-
     return (
       <header
         className="header"
@@ -84,27 +130,7 @@ export const Header = () => {
                       <div
                         className="header__materials-material pointer"
                         style={{ backgroundColor: "#978660" }}
-                        onClick={() => {
-                          if (material.type == "task") {
-                            navigate(
-                              `/language/study/beginner/unit-${Number(
-                                location.pathname[30]
-                              )}/task/${i}`
-                            );
-                          } else if (material.type == "topic") {
-                            navigate(
-                              `/language/study/beginner/unit-${Number(
-                                location.pathname[30]
-                              )}/topic/${material.position}`
-                            );
-                          } else if (material.type == "test") {
-                            navigate(
-                              `/language/study/beginner/unit-${Number(
-                                location.pathname[30]
-                              )}/test`
-                            );
-                          }
-                        }}
+                        onClick={clickMaterial(material)}
                       >
                         {material.type == "topic" ? "" : ""}
                         {material.type == "task" ? ">" : ""}
@@ -116,27 +142,7 @@ export const Header = () => {
                       <div
                         className="header__materials-material pointer"
                         style={{ backgroundColor: "#ccc" }}
-                        onClick={() => {
-                          if (material.type == "task") {
-                            navigate(
-                              `/language/study/beginner/unit-${Number(
-                                location.pathname[30]
-                              )}/task/${i}`
-                            );
-                          } else if (material.type == "topic") {
-                            navigate(
-                              `/language/study/beginner/unit-${Number(
-                                location.pathname[30]
-                              )}/topic/${material.position}`
-                            );
-                          } else if (material.type == "test") {
-                            navigate(
-                              `/language/study/beginner/unit-${Number(
-                                location.pathname[30]
-                              )}/test`
-                            );
-                          }
-                        }}
+                        onClick={clickMaterial(material)}
                       >
                         {material.type == "topic" ? "" : ""}
                         {material.type == "task" ? ">" : ""}

@@ -34,7 +34,6 @@ function Test_Unit1() {
   }
 
   let answers = data[0].units[0].materials[1].answers;
-  console.log(answers);
 
   let chosenOptions = [];
 
@@ -66,12 +65,10 @@ function Test_Unit1() {
             }
           }
         }
-        console.log(chosenOptions);
         document.querySelector(".unit__test").style.pointerEvents = "none";
         return;
       }
     }
-    console.log("RIGHT");
     axios.get(`http://localhost:8000/user/${profileData._id}`).then((res) => {
       if (!res.data.results[0].units[0].materials[1].completed) {
         handleAddPoints(profileData._id);
@@ -102,7 +99,6 @@ function Test_Unit1() {
 
     event.currentTarget.style.backgroundColor = "#423d33";
     event.currentTarget.style.color = "#fff";
-    console.log(chosenOptions);
   };
 
   return (
