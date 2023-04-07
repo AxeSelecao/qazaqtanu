@@ -36,7 +36,7 @@ function LevelRoadMap() {
                     location.pathname[30] == index + 1 ? "navlink-active" : ""
                   }`}
                 >
-                  {index + 1}. {unit.title[1]} ({unit.title[0]})
+                  {index + 1}. {unit.title[1]} <br />({unit.title[0]})
                 </h4>
               </NavLink>
             );

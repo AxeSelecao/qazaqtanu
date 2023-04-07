@@ -13,7 +13,7 @@ import Alphabet from "./pages/categories/language/alphabet/Alphabet";
 import Study from "./pages/categories/language/study/Study";
 import Beginner from "./pages/categories/language/study/levels/beginner/Beginner";
 import { Landing } from "./pages/Landing";
-import Tasks_unit1 from "./pages/categories/language/study/levels/beginner/unit-1/Tasks_unit-1";
+import Test_Unit1 from "./pages/categories/language/study/levels/beginner/unit-1/Test_unit-1";
 import Tasks_unit2 from "./pages/categories/language/study/levels/beginner/unit-2/Tasks_unit-2";
 import Tasks_unit3 from "./pages/categories/language/study/levels/beginner/unit-3/Tasks_unit-3";
 import Unit1_Topic1 from "./pages/categories/language/study/levels/beginner/unit-1/Topic-1";
@@ -66,8 +66,8 @@ const router = createBrowserRouter([
             element: <Unit1_Topic1 />,
           },
           {
-            path: "/language/study/beginner/unit-1/task/:num",
-            element: <Tasks_unit1 />,
+            path: "/language/study/beginner/unit-1/test",
+            element: <Test_Unit1 />,
           },
           {
             path: "/language/study/beginner/unit-2/topic/:num",

@@ -34,10 +34,10 @@ function Unit6_Topics() {
     <div className="unit">
       <div className="unit__container">
         <h1 className="unit__container-title" style={{ marginBottom: 0 }}>
-          {data[0].units[5].materials[0].title[1]}
+          {data[0].units[5].materials[0].title[0]}
         </h1>
         <h2 style={{ marginBottom: 20, textAlign: "center" }}>
-          ({data[0].units[5].materials[0].title[0]})
+          ({data[0].units[5].materials[0].title[1]})
         </h2>
         <p className="unit__container-description">
           {data[0].units[5].materials[0].description[0]}
@@ -56,7 +56,7 @@ function Unit6_Topics() {
             backgroundColor: "#fff",
             padding: "20px  30px",
             borderRadius: 5,
-				border: "1px solid"
+            border: "1px solid",
           }}
         >
           <div>
@@ -64,7 +64,7 @@ function Unit6_Topics() {
               className="unit__container-description"
               style={{ textDecoration: "underline" }}
             >
-              құрамына қарай:
+              құрамына қарай (по составу):
             </p>
             <ul>
               <li
@@ -98,7 +98,7 @@ function Unit6_Topics() {
               className="unit__container-description"
               style={{ textDecoration: "underline" }}
             >
-              тұлғасына қарай:
+              тұлғасына қарай (по способу образования):
             </p>
             <ul>
               <li
@@ -132,7 +132,7 @@ function Unit6_Topics() {
               className="unit__container-description"
               style={{ textDecoration: "underline" }}
             >
-              мағынасына қарай:
+              мағынасына қарай (по значению):
             </p>
             <ul>
               <li

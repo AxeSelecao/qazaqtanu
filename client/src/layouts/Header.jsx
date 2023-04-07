@@ -97,11 +97,18 @@ export const Header = () => {
                                 location.pathname[30]
                               )}/topic/${material.position}`
                             );
+                          } else if (material.type == "test") {
+                            navigate(
+                              `/language/study/beginner/unit-${Number(
+                                location.pathname[30]
+                              )}/test`
+                            );
                           }
                         }}
                       >
                         {material.type == "topic" ? "" : ""}
-                        {material.type == "task" ? "?" : ""}
+                        {material.type == "task" ? ">" : ""}
+                        {material.type == "test" ? "?" : ""}
                       </div>
                     );
                   } else if (!material.completed) {
@@ -122,11 +129,18 @@ export const Header = () => {
                                 location.pathname[30]
                               )}/topic/${material.position}`
                             );
+                          } else if (material.type == "test") {
+                            navigate(
+                              `/language/study/beginner/unit-${Number(
+                                location.pathname[30]
+                              )}/test`
+                            );
                           }
                         }}
                       >
                         {material.type == "topic" ? "" : ""}
-                        {material.type == "task" ? "?" : ""}
+                        {material.type == "task" ? ">" : ""}
+                        {material.type == "test" ? "?" : ""}
                       </div>
                     );
                   }
