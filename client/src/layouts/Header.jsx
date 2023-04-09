@@ -1,4 +1,4 @@
-import logo from "../assets/icons/history.svg";
+import logo from "../assets/icons/logo.svg";
 import avatar from "../assets/images/header/avatar.jpg";
 import coin from "../assets/icons/coin.png";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
@@ -10,7 +10,6 @@ import { useGetUsersQuery } from "../services/redux/API/usersAPI";
 export const Header = () => {
   const profileData = useSelector((state) => state.login.account);
   const isLogged = useSelector((state) => state.login.isLogged);
-  const unitNum = useSelector((state) => state.login.unitNum);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -26,6 +25,7 @@ export const Header = () => {
     "Музыка",
     "Искусство",
   ];
+
   const links = [
     "history",
     "language",
@@ -38,13 +38,6 @@ export const Header = () => {
 
   let location = useLocation();
 
-  if (
-    location.pathname == "/registration" ||
-    location.pathname == "/authorization"
-  ) {
-    return;
-  }
-
   const clickMaterial = (material) => (event) => {
     const materialsElems = document.querySelectorAll(
       ".header__materials-material"
@@ -55,9 +48,9 @@ export const Header = () => {
     event.currentTarget.style.border = "2px solid white";
     if (material.type == "task") {
       navigate(
-        `/language/study/beginner/unit-${Number(
-          location.pathname[30]
-        )}/task/${i}`
+        `/language/study/beginner/unit-${Number(location.pathname[30])}/task/${
+          material.position
+        }`
       );
     } else if (material.type == "topic") {
       navigate(
@@ -67,7 +60,9 @@ export const Header = () => {
       );
     } else if (material.type == "test") {
       navigate(
-        `/language/study/beginner/unit-${Number(location.pathname[30])}/test`
+        `/language/study/beginner/unit-${Number(location.pathname[30])}/test/${
+          material.position
+        }`
       );
     }
   };
@@ -87,7 +82,7 @@ export const Header = () => {
           materialsElems[i].style.border = "none";
         }
       }
-    }, 10);
+    }, 1);
   });
 
   let backColor = "transparent";
@@ -116,7 +111,11 @@ export const Header = () => {
                   justifyContent: "center",
                 }}
               >
-                <img className="header__categories-img" src={logo} />
+                <img
+                  className="header__categories-img"
+                  style={{ marginRight: 10 }}
+                  src={logo}
+                />
                 <p className="header__categories-logo">Qazaqtanu</p>
               </NavLink>
             </div>
@@ -237,6 +236,13 @@ export const Header = () => {
     );
   }
 
+  if (
+    location.pathname == "/registration" ||
+    location.pathname == "/authorization"
+  ) {
+    return <></>;
+  }
+
   return (
     <header
       className="header"
@@ -244,7 +250,16 @@ export const Header = () => {
     >
       <div className="header__container">
         <div className="header__categories">
-          <NavLink className="navlink" to={""}>
+          <NavLink
+            className="navlink"
+            to={""}
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <img className="header__categories-img" src={logo} />
           </NavLink>
           <div className="header__categories-navbar">
