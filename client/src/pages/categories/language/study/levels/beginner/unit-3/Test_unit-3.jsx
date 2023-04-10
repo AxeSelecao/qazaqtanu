@@ -56,16 +56,16 @@ function Test_Unit3() {
         const optionsElems = document.querySelectorAll(
           ".unit__test-answer-option"
         );
-      //  for (let j = 0; j < optionsElems.length; j++) {
-      //    for (let k = 0; k < chosenOptions.length; k++) {
-      //      if (optionsElems[j].innerText == chosenOptions[k]) {
-      //        optionsElems[j].style.backgroundColor = "#c52026";
-      //        if (optionsElems[j].innerText == answers[k]) {
-      //          optionsElems[j].style.backgroundColor = "#54ad54";
-      //        }
-      //      }
-      //    }
-      //  }
+        //  for (let j = 0; j < optionsElems.length; j++) {
+        //    for (let k = 0; k < chosenOptions.length; k++) {
+        //      if (optionsElems[j].innerText == chosenOptions[k]) {
+        //        optionsElems[j].style.backgroundColor = "#c52026";
+        //        if (optionsElems[j].innerText == answers[k]) {
+        //          optionsElems[j].style.backgroundColor = "#54ad54";
+        //        }
+        //      }
+        //    }
+        //  }
         document.querySelector(".unit__test").style.pointerEvents = "none";
         return;
       }
@@ -82,7 +82,7 @@ function Test_Unit3() {
     });
     document.querySelector(".unit__passed").style.display = "block";
     setTimeout(function () {
-      navigate("/language/study/beginner/unit-4/task/1");
+      navigate("/language/study/beginner/unit-3/task/1");
     }, 3000);
   };
 

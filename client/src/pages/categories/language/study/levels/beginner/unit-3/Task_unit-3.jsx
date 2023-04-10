@@ -41,147 +41,10 @@ function Task_Unit3() {
   }
 
   let answers = data[0].units[2].materials[2].answers;
-  // console.log(answers);
-
-  let chosenOptions = [];
-
-  const solveAgain = () => {
-    const optionsElems = document.querySelectorAll(".unit__test-answer-option");
-
-    for (let i = 0; i < optionsElems.length; i++) {
-      optionsElems[i].style.backgroundColor = "#968560";
-      optionsElems[i].style.color = "#000";
-    }
-    chosenOptions = [];
-    document.querySelector(".unit__test").style.pointerEvents = "all";
-  };
-
-  const checkAnswer = () => {
-    for (let i = 0; i < answers.length; i++) {
-      if (answers[i] == chosenOptions[i]) {
-      } else {
-        const optionsElems = document.querySelectorAll(
-          ".unit__test-answer-option"
-        );
-        //  for (let j = 0; j < optionsElems.length; j++) {
-        //    for (let k = 0; k < chosenOptions.length; k++) {
-        //      if (optionsElems[j].innerText == chosenOptions[k]) {
-        //        optionsElems[j].style.backgroundColor = "#c52026";
-        //        if (optionsElems[j].innerText == answers[k]) {
-        //          optionsElems[j].style.backgroundColor = "#54ad54";
-        //        }
-        //      }
-        //    }
-        //  }
-        document.querySelector(".unit__test").style.pointerEvents = "none";
-        return;
-      }
-    }
-    axios.get(`http://localhost:8000/user/${profileData._id}`).then((res) => {
-      if (!res.data.results[0].units[2].materials[1].completed) {
-        handleAddPoints(profileData._id);
-        dispatch(addPoint());
-        handleMakeComplete({
-          unit_name: "unit-3",
-          material_id: "6433342fa904b8f5573e241d",
-        });
-      }
-    });
-    document.querySelector(".unit__passed").style.display = "block";
-    setTimeout(function () {
-      navigate("/language/study/beginner/unit-4/task/1");
-    }, 3000);
-  };
-
-  const chooseOption = (index) => (event) => {
-    chosenOptions[index] = event.currentTarget.innerText;
-    const optionsElems = document.querySelectorAll(".unit__test-answer-option");
-
-    let length = (index + 1) * 4;
-    let i = length - 4;
-
-    for (; i < length; i++) {
-      optionsElems[i].style.backgroundColor = "#968560";
-      optionsElems[i].style.color = "#000";
-    }
-
-    event.currentTarget.style.backgroundColor = "#423d33";
-    event.currentTarget.style.color = "#fff";
-  };
+  console.log(answers);
 
   return (
     <div className="unit">
-      {/*<div className="unit__container">
-        <h1 className="unit__container-title" style={{ margin: 0 }}>
-          Материалды бекітуге арналған Тест
-        </h1>
-        <h2 className="unit__container-title" style={{ marginTop: 0 }}>
-          (Тест для закрепления материала)
-        </h2>
-        <div className="unit__test">
-          {data[0].units[2].materials[1].items.map((item, i) => {
-            return (
-              <div className="unit__test-item">
-                <div className="unit__test-question">
-                  <h2
-                    className="unit__container-description inline"
-                    style={{ margin: "0 20px 0 0" }}
-                  >
-                    {i + 1}.{item.question[1]}:
-                  </h2>
-                </div>
-                <div className="unit__test-answers">
-                  {data[0].units[2].materials[1].items[i].answer_options.map(
-                    (option) => {
-                      return (
-                        <div
-                          className="unit__test-answer-option pointer"
-                          style={
-                            option == ""
-                              ? { display: "none" }
-                              : { display: "block" }
-                          }
-                          onClick={chooseOption(i)}
-                        >
-                          {option}
-                        </div>
-                      );
-                    }
-                  )}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-        <div className="unit__passed">
-          <h2>Бәрі дұрыс! Жарайсын!</h2>
-          <p>(Всё верно! Молодец!)</p>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "right",
-            alignItems: "center",
-            marginTop: 30,
-          }}
-        >
-          <button
-            className="button-next"
-            onClick={checkAnswer}
-            style={{ marginRight: 20 }}
-          >
-            Тексеру (Проверить)
-          </button>
-          <button
-            className="button-next"
-            onClick={solveAgain}
-            style={{ backgroundColor: "#fff", color: "black" }}
-          >
-            Қайтадан (Заново)
-          </button>
-        </div>
-      </div>*/}
       <div className="unit__container">
         <h1 className="unit__container-title" style={{ margin: 0 }}>
           Тапсырма-{num} (задание)
@@ -192,15 +55,66 @@ function Task_Unit3() {
         <div className="unit__task">
           <form
             onSubmit={handleSubmit((data) => {
+              console.log(data);
+
+              let count = 0;
               for (let key in data) {
-                // тело цикла выполняется для каждого свойства объекта
-                console.log(data[key]);
+                if (data[key] != answers[count]) {
+                  return;
+                }
+                count++;
               }
+              axios
+                .get(`http://localhost:8000/user/${profileData._id}`)
+                .then((res) => {
+                  if (!res.data.results[0].units[2].materials[2].completed) {
+                    handleAddPoints(profileData._id);
+                    dispatch(addPoint());
+                    handleMakeComplete({
+                      unit_name: "unit-3",
+                      material_id: "643337ffa904b8f5573e2422",
+                    });
+                  }
+                });
+              console.log(data);
+              document.querySelector(".unit__passed").style.display = "block";
+              setTimeout(function () {
+                navigate("/language/study/beginner/unit-4/topic/1");
+              }, 3000);
             })}
           >
-            <span>{data[0].units[2].materials[2].items[0].sentence[0]}</span>
-            <input {...register(`task-${1}`)} />
-            <input type="submit" />
+            {data[0].units[2].materials[2].items.map((item, i) => {
+              return (
+                <div style={{ fontSize: 20, marginTop: 20 }}>
+                  <h3 style={{ display: "inline" }}>
+                    {i + 1}. {item.sentence[0]}
+                  </h3>
+                  <input
+                    {...register(`task-${i + 1}`)}
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "none",
+                      borderBottom: "1px solid black",
+                      width: 80,
+                      outline: "none",
+                      fontSize: 22,
+                      fontFamily: "serif",
+                      fontWeight: 700,
+                    }}
+                  />
+                </div>
+              );
+            })}
+            <div className="unit__passed" style={{ marginTop: 20 }}>
+              <h2>Бәрі дұрыс! Жарайсын!</h2>
+              <p>(Всё верно! Молодец!)</p>
+            </div>
+            <input
+              className="button-next"
+              type="submit"
+              value="Тексеру (Проверить)"
+              style={{ marginTop: 30 }}
+            />
           </form>
         </div>
       </div>
