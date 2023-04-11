@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useState } from "react";
 import {
   useGetUnitsQuery,
   useAddPointsMutation,
@@ -10,7 +9,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 
-function Task_Unit3() {
+function Task_Unit4({ unit }) {
   let { num } = useParams();
   const profileData = useSelector((state) => state.login.account);
 
@@ -42,7 +41,7 @@ function Task_Unit3() {
   }
 
   if (num == 1) {
-    let answers = data[0].units[2].materials[2].answers;
+    let answers = data[0].units[unit].materials[1].answers;
     console.log(answers);
 
     return (
@@ -52,7 +51,7 @@ function Task_Unit3() {
             Тапсырма-{num} (задание)
           </h1>
           <h2 className="unit__container-title" style={{ marginTop: 20 }}>
-            {data[0].units[2].materials[2].title[1]}
+            {data[0].units[unit].materials[1].title[0]}
           </h2>
           <div className="unit__task">
             <form
@@ -72,12 +71,15 @@ function Task_Unit3() {
                 axios
                   .get(`http://localhost:8000/user/${profileData._id}`)
                   .then((res) => {
-                    if (!res.data.results[0].units[2].materials[2].completed) {
+                    if (
+                      !res.data.results[0].units[unit].materials[1].completed
+                    ) {
                       handleAddPoints(profileData._id);
                       dispatch(addPoint());
                       handleMakeComplete({
-                        unit_name: "unit-3",
-                        material_id: "643337ffa904b8f5573e2422",
+                        unit_name: `unit-${unit + 1}`,
+                        material_id:
+                          res.data.results[0].units[unit].materials[1]._id,
                       });
                     }
                   });
@@ -87,29 +89,30 @@ function Task_Unit3() {
                   reset();
                   document.querySelector(".unit__passed").style.display =
                     "none";
-                  navigate("/language/study/beginner/unit-3/task/2");
+                  navigate(`/language/study/beginner/unit-${unit + 1}/task/2`);
                 }, 3000);
               })}
             >
-              {data[0].units[2].materials[2].items.map((item, i) => {
+              {data[0].units[unit].materials[1].items.map((item, i) => {
                 return (
                   <div style={{ fontSize: 20, marginTop: 20 }}>
                     <h3 style={{ display: "inline" }}>
-                      {i + 1}. {item.sentence[0]}
+                      {i + 1}.{" "}
+                      <input
+                        {...register(`task-${i + 1}`)}
+                        style={{
+                          backgroundColor: "transparent",
+                          border: "none",
+                          borderBottom: "1px solid black",
+                          width: 100,
+                          outline: "none",
+                          fontSize: 22,
+                          fontFamily: "serif",
+                          fontWeight: 700,
+                        }}
+                      />{" "}
+                      {item.sentence[0]}
                     </h3>
-                    <input
-                      {...register(`task-${i + 1}`)}
-                      style={{
-                        backgroundColor: "transparent",
-                        border: "none",
-                        borderBottom: "1px solid black",
-                        width: 80,
-                        outline: "none",
-                        fontSize: 22,
-                        fontFamily: "serif",
-                        fontWeight: 700,
-                      }}
-                    />
                   </div>
                 );
               })}
@@ -131,7 +134,7 @@ function Task_Unit3() {
   }
 
   if (num == 2) {
-    let answers = data[0].units[2].materials[3].answers;
+    let answers = data[0].units[unit].materials[2].answers;
     console.log(answers);
 
     return (
@@ -141,15 +144,12 @@ function Task_Unit3() {
             Тапсырма-{num} (задание)
           </h1>
           <h2 className="unit__container-title" style={{ marginTop: 20 }}>
-            {data[0].units[2].materials[3].title[1]}
+            {data[0].units[unit].materials[2].title[0]}
           </h2>
           <div className="unit__task">
             <form
               onSubmit={handleSubmit((data) => {
                 console.log(data);
-
-                let objectLenght = Object.keys(data).length;
-                console.log(objectLenght);
 
                 let count = 0;
                 for (let key in data) {
@@ -164,23 +164,121 @@ function Task_Unit3() {
                 axios
                   .get(`http://localhost:8000/user/${profileData._id}`)
                   .then((res) => {
-                    if (!res.data.results[0].units[2].materials[3].completed) {
+                    if (
+                      !res.data.results[0].units[unit].materials[2].completed
+                    ) {
                       handleAddPoints(profileData._id);
                       dispatch(addPoint());
                       handleMakeComplete({
-                        unit_name: "unit-3",
-                        material_id: "643448ec5eaf334eb41e79e6",
+                        unit_name: `unit-${unit + 1}`,
+                        material_id:
+                          res.data.results[0].units[unit].materials[2]._id,
                       });
                     }
                   });
                 console.log(data);
                 document.querySelector(".unit__passed").style.display = "block";
                 setTimeout(function () {
-                  navigate("/language/study/beginner/unit-4/topic/1");
+                  reset();
+                  document.querySelector(".unit__passed").style.display =
+                    "none";
+                  navigate(`/language/study/beginner/unit-${unit + 1}/task/3`);
                 }, 3000);
               })}
             >
-              {data[0].units[2].materials[3].items.map((item, i) => {
+              {data[0].units[unit].materials[2].items.map((item, i) => {
+                return (
+                  <div style={{ fontSize: 20, marginTop: 20 }}>
+                    <h3 style={{ display: "inline" }}>
+                      {i + 1}. {item.sentence[0]}
+                      <input
+                        {...register(`task-${i + 1}`)}
+                        style={{
+                          backgroundColor: "transparent",
+                          border: "none",
+                          borderBottom: "1px solid black",
+                          width: 100,
+                          outline: "none",
+                          fontSize: 22,
+                          fontFamily: "serif",
+                          fontWeight: 700,
+                        }}
+                      />{" "}
+                    </h3>
+                  </div>
+                );
+              })}
+              <div className="unit__passed" style={{ marginTop: 20 }}>
+                <h2>Бәрі дұрыс! Жарайсын!</h2>
+                <p>(Всё верно! Молодец!)</p>
+              </div>
+              <input
+                className="button-next"
+                type="submit"
+                value="Тексеру (Проверить)"
+                style={{ marginTop: 30 }}
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (num == 3) {
+    let answers = data[0].units[unit].materials[3].answers;
+    console.log(answers);
+
+    return (
+      <div className="unit">
+        <div className="unit__container">
+          <h1 className="unit__container-title" style={{ margin: 0 }}>
+            Тапсырма-{num} (задание)
+          </h1>
+          <h2 className="unit__container-title" style={{ marginTop: 20 }}>
+            {data[0].units[unit].materials[3].title[0]}
+          </h2>
+          <div className="unit__task">
+            <form
+              onSubmit={handleSubmit((data) => {
+                console.log(data);
+
+                let count = 0;
+                for (let key in data) {
+                  if (data[key] != answers[count]) {
+                    return;
+                  }
+                  count++;
+                  if (count == answers.length) {
+                    break;
+                  }
+                }
+                axios
+                  .get(`http://localhost:8000/user/${profileData._id}`)
+                  .then((res) => {
+                    if (
+                      !res.data.results[0].units[unit].materials[3].completed
+                    ) {
+                      handleAddPoints(profileData._id);
+                      dispatch(addPoint());
+                      handleMakeComplete({
+                        unit_name: `unit-${unit + 1}`,
+                        material_id:
+                          res.data.results[0].units[unit].materials[3]._id,
+                      });
+                    }
+                  });
+                console.log(data);
+                document.querySelector(".unit__passed").style.display = "block";
+                setTimeout(function () {
+                  reset();
+                  document.querySelector(".unit__passed").style.display =
+                    "none";
+                  navigate(`/language/study/beginner/unit-${unit + 1}/test/1`);
+                }, 3000);
+              })}
+            >
+              {data[0].units[unit].materials[3].items.map((item, i) => {
                 return (
                   <div
                     style={{
@@ -230,4 +328,4 @@ function Task_Unit3() {
   }
 }
 
-export default Task_Unit3;
+export default Task_Unit4;

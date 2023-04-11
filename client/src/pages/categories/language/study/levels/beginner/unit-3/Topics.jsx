@@ -177,6 +177,104 @@ function Unit3_Topics() {
           </div>
         </div>
         <div
+          className="unit__dictionary"
+          style={{ marginTop: 20, width: "30%" }}
+        >
+          <h2 style={{ textAlign: "center", marginBottom: 20 }}>Сөздік</h2>
+          <div className="unit__dictionary-words" style={{ fontSize: 25 }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>дәптер</p> - <p>тетрадь</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>оқушы</p> - <p>ученик</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>кітап</p> - <p>книга</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>білім</p> - <p>знания</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>мектеп</p> - <p>школа</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>сызғыш</p> - <p>линейка</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>өшіргіш</p> - <p>ластик</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>тапсырма</p> - <p>задание</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>қалам</p> - <p>ручка</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>қарындаш</p> - <p>карандаш</p>
+            </div>
+          </div>
+        </div>
+        <div
           style={{
             display: "flex",
             flexDirection: "row",
