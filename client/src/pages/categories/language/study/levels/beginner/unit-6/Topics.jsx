@@ -53,7 +53,7 @@ function Unit6_Topics() {
             justifyContent: "space-between",
             alignItems: "start",
             marginTop: 20,
-            backgroundColor: "#fff",
+            backgroundColor: "#e8e8e8",
             padding: "20px  30px",
             borderRadius: 5,
             border: "1px solid",
@@ -202,6 +202,143 @@ function Unit6_Topics() {
           </div>
         </div>
         <div
+          className="unit__dictionary"
+          style={{
+            marginTop: 20,
+            width: "27%",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        >
+          <h2 style={{ textAlign: "center", marginBottom: 20 }}>
+            Сөздік (словарь)
+          </h2>
+          <div
+            className="unit__dictionary-words"
+            style={{
+              fontSize: 25,
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>ақ</p> - <p>белый</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>сарғыш</p> - <p>желтоватый</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>сары</p> - <p>жёлтый</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>қызғылт сары</p> - <p>оранжевый</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>қоңыр</p> - <p>коричневый</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>қызыл</p> - <p>красный</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>қызғылт</p> - <p>розовый</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>күлгін</p> - <p>фиолетовый</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>көк</p> - <p>синий</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>көгілдір</p> - <p>голубой</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>жасыл</p> - <p>зелёный</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>қара</p> - <p>чёрный</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>сұр</p> - <p>серый</p>
+            </div>
+          </div>
+        </div>
+        <div
           style={{
             display: "flex",
             flexDirection: "row",
@@ -218,16 +355,17 @@ function Unit6_Topics() {
               axios
                 .get(`http://localhost:8000/user/${profileData._id}`)
                 .then((res) => {
-                  if (!res.data.results[0].units[4].materials[0].completed) {
+                  if (!res.data.results[0].units[5].materials[0].completed) {
                     handleAddPoints(profileData._id);
                     dispatch(addPoint());
                     handleMakeComplete({
-                      unit_name: "unit-5",
-                      material_id: "642ef4bb92afe3bf613881b0",
+                      unit_name: "unit-6",
+                      material_id:
+                        res.data.results[0].units[5].materials[0]._id,
                     });
                   }
                 });
-              navigate("/language/study/beginner/unit-5/task/1");
+              navigate("/language/study/beginner/unit-6/task/1");
             }}
           >
             Следующий шаг

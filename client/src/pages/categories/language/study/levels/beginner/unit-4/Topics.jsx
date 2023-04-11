@@ -559,6 +559,116 @@ function Unit4_Topics() {
           </div>
         </div>
         <div
+          className="unit__dictionary"
+          style={{
+            marginTop: 20,
+            width: "27%",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        >
+          <h2 style={{ textAlign: "center", marginBottom: 20 }}>
+            Сөздік (словарь)
+          </h2>
+          <div
+            className="unit__dictionary-words"
+            style={{
+              fontSize: 25,
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>әке</p> - <p>папа</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>аңа</p> - <p>мама</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>ата</p> - <p>дедушка</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>әже</p> - <p>бабушка</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>аға</p> - <p>брат</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>іңі</p> - <p>братишка</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>әпке</p> - <p>сестра</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>қарыңдас/сіңілі</p> - <p>сестренка</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>көке</p> - <p>дядя</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <p>тәте</p> - <p>тетя</p>
+            </div>
+          </div>
+        </div>
+        <div
           style={{
             display: "flex",
             flexDirection: "row",

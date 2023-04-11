@@ -180,7 +180,9 @@ function Unit3_Topics() {
           className="unit__dictionary"
           style={{ marginTop: 20, width: "30%" }}
         >
-          <h2 style={{ textAlign: "center", marginBottom: 20 }}>Сөздік</h2>
+          <h2 style={{ textAlign: "center", marginBottom: 20 }}>
+            Сөздік (словарь)
+          </h2>
           <div className="unit__dictionary-words" style={{ fontSize: 25 }}>
             <div
               style={{

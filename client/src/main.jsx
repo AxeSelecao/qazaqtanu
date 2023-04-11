@@ -25,6 +25,10 @@ import Test_Unit3 from "./pages/categories/language/study/levels/beginner/unit-3
 import Task_Unit3 from "./pages/categories/language/study/levels/beginner/unit-3/Task_unit-3";
 import Task_Unit4 from "./pages/categories/language/study/levels/beginner/unit-4/Task_unit-4";
 import Test_Unit4 from "./pages/categories/language/study/levels/beginner/unit-4/Test_unit-4";
+import Task_Unit5 from "./pages/categories/language/study/levels/beginner/unit-5/Task_unit-5";
+import Test_Unit5 from "./pages/categories/language/study/levels/beginner/unit-5/Test_unit-5";
+import Task_Unit6 from "./pages/categories/language/study/levels/beginner/unit-6/Task_unit-6";
+import Test_Unit6 from "./pages/categories/language/study/levels/beginner/unit-6/Test_unit-6";
 
 const router = createBrowserRouter([
   {
@@ -107,9 +111,25 @@ const router = createBrowserRouter([
             path: "/language/study/beginner/unit-5/topic/:num",
             element: <Unit5_Topics />,
           },
+			 {
+            path: "/language/study/beginner/unit-5/task/:num",
+            element: <Task_Unit5 unit={5 - 1} />,
+          },
+          {
+            path: "/language/study/beginner/unit-5/test/:num",
+            element: <Test_Unit5 unit={5 - 1} />,
+          },
           {
             path: "/language/study/beginner/unit-6/topic/:num",
             element: <Unit6_Topics />,
+          },
+			 {
+            path: "/language/study/beginner/unit-6/task/:num",
+            element: <Task_Unit6 unit={6 - 1} />,
+          },
+          {
+            path: "/language/study/beginner/unit-6/test/:num",
+            element: <Test_Unit6 unit={6 - 1} />,
           },
         ],
       },
