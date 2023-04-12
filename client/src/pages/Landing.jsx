@@ -8,7 +8,7 @@ export const Landing = () => {
           <h1 className="landing__main-title">Qazaqtanu</h1>
           <h3 className="landing__main-description">
             {/*mädeni jäne bilim beru platformasy*/}
-				культурная и образовательная платформа
+				образовательная платформа
           </h3>
         </div>
       </div>

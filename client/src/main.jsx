@@ -29,6 +29,10 @@ import Task_Unit5 from "./pages/categories/language/study/levels/beginner/unit-5
 import Test_Unit5 from "./pages/categories/language/study/levels/beginner/unit-5/Test_unit-5";
 import Task_Unit6 from "./pages/categories/language/study/levels/beginner/unit-6/Task_unit-6";
 import Test_Unit6 from "./pages/categories/language/study/levels/beginner/unit-6/Test_unit-6";
+import Unit7_Topics from "./pages/categories/language/study/levels/beginner/unit-7/Topics";
+import Task_Unit7 from "./pages/categories/language/study/levels/beginner/unit-7/Task_unit-6";
+import Unit8_Topics from "./pages/categories/language/study/levels/beginner/unit-8/Topics";
+import Unit9_Topics from "./pages/categories/language/study/levels/beginner/unit-9/Topics";
 
 const router = createBrowserRouter([
   {
@@ -111,7 +115,7 @@ const router = createBrowserRouter([
             path: "/language/study/beginner/unit-5/topic/:num",
             element: <Unit5_Topics />,
           },
-			 {
+          {
             path: "/language/study/beginner/unit-5/task/:num",
             element: <Task_Unit5 unit={5 - 1} />,
           },
@@ -123,13 +127,33 @@ const router = createBrowserRouter([
             path: "/language/study/beginner/unit-6/topic/:num",
             element: <Unit6_Topics />,
           },
-			 {
+          {
             path: "/language/study/beginner/unit-6/task/:num",
             element: <Task_Unit6 unit={6 - 1} />,
           },
           {
             path: "/language/study/beginner/unit-6/test/:num",
             element: <Test_Unit6 unit={6 - 1} />,
+          },
+          {
+            path: "/language/study/beginner/unit-7/topic/:num",
+            element: <Unit7_Topics unit={7 - 1} />,
+          },
+			 {
+            path: "/language/study/beginner/unit-7/task/:num",
+            element: <Task_Unit7 unit={7 - 1} />,
+          },
+          {
+            path: "/language/study/beginner/unit-7/test/:num",
+            element: <Test_Unit6 unit={6 - 1} />,
+          },
+			 {
+            path: "/language/study/beginner/unit-8/topic/:num",
+            element: <Unit8_Topics unit={8 - 1} />,
+          },
+			 {
+            path: "/language/study/beginner/unit-9/topic/:num",
+            element: <Unit9_Topics unit={9 - 1} />,
           },
         ],
       },

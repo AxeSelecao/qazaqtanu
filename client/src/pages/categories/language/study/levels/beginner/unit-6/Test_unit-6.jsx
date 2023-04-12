@@ -68,7 +68,7 @@ function Test_Unit6({ unit }) {
     });
     document.querySelector(".unit__passed").style.display = "block";
     setTimeout(function () {
-      navigate("/language/study/beginner/unit-6/topic/1");
+      navigate("/language/study/beginner/unit-7/topic/1");
     }, 3000);
   };
 

@@ -36,24 +36,7 @@ export const Language = () => {
             />
             <h2>Алфавит</h2>
           </NavLink>
-          <NavLink
-            className="navlink"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "space-between",
-            }}
-            to={""}
-          >
-            <img
-              className="section__container-category"
-              src={grammarIcon}
-              alt="grammar icon"
-            />
-            <h2>Грамматика</h2>
-          </NavLink>
-          <NavLink
+			 <NavLink
             className="navlink"
             style={{
               display: "flex",
@@ -71,6 +54,24 @@ export const Language = () => {
             <h2>Обучение</h2>
           </NavLink>
           <NavLink
+            className="navlink"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+            to={""}
+          >
+            <img
+              className="section__container-category"
+              src={grammarIcon}
+              alt="grammar icon"
+            />
+            <h2>Грамматика</h2>
+          </NavLink>
+          
+          {/*<NavLink
             className="navlink"
             style={{
               display: "flex",
@@ -103,7 +104,7 @@ export const Language = () => {
               alt="speaking club icon"
             />
             <h2>Разговорные клубы</h2>
-          </NavLink>
+          </NavLink>*/}
         </div>
       </div>
     </div>

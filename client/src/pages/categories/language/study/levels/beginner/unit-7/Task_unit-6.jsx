@@ -9,7 +9,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 
-function Task_Unit6({ unit }) {
+function Task_Unit7({ unit }) {
   let { num } = useParams();
   const profileData = useSelector((state) => state.login.account);
 
@@ -133,15 +133,12 @@ function Task_Unit6({ unit }) {
     let answers = data[0].units[unit].materials[2].answers;
     console.log(answers);
 
-    return (
+	 return (
       <div className="unit">
         <div className="unit__container">
           <h1 className="unit__container-title" style={{ margin: 0 }}>
             Тапсырма-{num} (задание)
           </h1>
-          <h2 className="unit__container-title" style={{ marginTop: 20 }}>
-            {data[0].units[unit].materials[2].title[0]}
-          </h2>
           <div className="unit__task">
             <form
               onSubmit={handleSubmit((data) => {
@@ -178,7 +175,7 @@ function Task_Unit6({ unit }) {
                   reset();
                   document.querySelector(".unit__passed").style.display =
                     "none";
-                  navigate(`/language/study/beginner/unit-${unit + 1}/test/1`);
+                  navigate(`/language/study/beginner/unit-${unit + 1}/task/2`);
                 }, 3000);
               })}
             >
@@ -186,22 +183,21 @@ function Task_Unit6({ unit }) {
                 return (
                   <div style={{ fontSize: 20, marginTop: 20 }}>
                     <h3 style={{ display: "inline" }}>
-                      {i + 1}. {item}
-                    </h3>{" "}
-                    -{" "}
-                    <input
-                      {...register(`task-${i + 1}`)}
-                      style={{
-                        backgroundColor: "transparent",
-                        border: "none",
-                        borderBottom: "1px solid black",
-                        width: 150,
-                        outline: "none",
-                        fontSize: 22,
-                        fontFamily: "serif",
-                        fontWeight: 700,
-                      }}
-                    />
+                      {i + 1}. {item.sentence[0]}:{" "}
+                      <input
+                        {...register(`task-${i + 1}`)}
+                        style={{
+                          backgroundColor: "transparent",
+                          border: "none",
+                          borderBottom: "1px solid black",
+                          width: 130,
+                          outline: "none",
+                          fontSize: 22,
+                          fontFamily: "serif",
+                          fontWeight: 700,
+                        }}
+                      />{" "}
+                    </h3>
                   </div>
                 );
               })}
@@ -223,4 +219,4 @@ function Task_Unit6({ unit }) {
   }
 }
 
-export default Task_Unit6;
+export default Task_Unit7;

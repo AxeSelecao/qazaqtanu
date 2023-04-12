@@ -59,7 +59,7 @@ function Unit6_Topics() {
             border: "1px solid",
           }}
         >
-          <div>
+          <div style={{ width: "30%" }}>
             <p
               className="unit__container-description"
               style={{ textDecoration: "underline" }}
@@ -93,7 +93,7 @@ function Unit6_Topics() {
               </p>
             </ul>
           </div>
-          <div>
+          <div style={{ width: "30%" }}>
             <p
               className="unit__container-description"
               style={{ textDecoration: "underline" }}
@@ -127,7 +127,7 @@ function Unit6_Topics() {
               </p>
             </ul>
           </div>
-          <div>
+          <div style={{ width: "30%" }}>
             <p
               className="unit__container-description"
               style={{ textDecoration: "underline" }}

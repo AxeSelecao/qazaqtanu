@@ -300,10 +300,14 @@
   //  background-color: #c7c7c7;
   background-size: 100% 100%;
   height: 100vh;
-  padding-top: 250px;
+  //  padding-top: 250px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 
   &__container {
-    width: 70%;
+    width: 40%;
     border-radius: 15px;
     font-family: sans-serif;
     padding: 50px;
@@ -395,11 +399,14 @@
 }
 
 .study {
-  //  background-color: #c7c7c7;
   background-image: url("assets/images/landing/steppe.jpg");
   background-size: 100% 100%;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 
   &__container {
     display: flex;
@@ -407,7 +414,6 @@
     align-items: center;
     justify-content: space-between;
     width: 80%;
-    padding-top: 200px;
     margin-left: auto;
     margin-right: auto;
     font-family: sans-serif;
@@ -442,6 +448,11 @@
       }
     }
   }
+}
+
+table {
+  background-color: #e8e8e8;
+  font-size: 20px;
 }
 
 //LEVEL
@@ -498,7 +509,6 @@
       display: "flex";
       flex-direction: "column";
       justify-content: "center";
-      padding-top: 50px;
 
       &-title {
         text-align: center;
@@ -535,6 +545,20 @@
       h2 {
         font-weight: normal;
         padding: 7px 0;
+      }
+
+      &-top,
+      &-middle,
+      &-bottom {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      &-middle {
+      }
+
+      &-bottom {
       }
 
       &-header {
@@ -625,9 +649,9 @@
 .levelroadmap {
   position: fixed;
   height: 100vh;
-  width: 17%;
+  width: 21%;
   border-right: 1px solid black;
-  padding: 100px 0;
+  padding: 70px 0 0;
   background-color: #222222;
   color: #978661;
   font-family: "EB Garamond", serif;
@@ -642,6 +666,8 @@
 
     &-units {
       margin-top: 10px;
+      overflow-y: scroll;
+      height: 600px;
 
       .navlink {
         color: #aaa;
